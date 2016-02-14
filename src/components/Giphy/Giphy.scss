@@ -1,0 +1,15 @@
+.container {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 10px;
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.input {
+  width: 100%;
+}

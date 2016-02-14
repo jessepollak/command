@@ -1,0 +1,46 @@
+{
+  "name": "Slash",
+  "version": "0.0.1",
+  "description": "Making the web better with Slack-like slash commands.",
+  "private": true,
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENV=development ./node_modules/.bin/babel-node ./dev-env/dev.js",
+    "build": "NODE_ENV=production ./node_modules/.bin/babel-node ./dev-env/build.js"
+  },
+  "keywords": [],
+  "jshintConfig": {
+    "asi": true,
+    "esnext": true
+  },
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "lodash": "^4.3.0",
+    "react": "0.14.7",
+    "react-dom": "^0.14.7",
+    "redux": "^3.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.4.5",
+    "babel-core": "6.4.5",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-react": "6.3.13",
+    "babel-preset-react-hmre": "1.0.1",
+    "chokidar": "1.4.2",
+    "cli-color": "1.1.0",
+    "css-loader": "0.23.1",
+    "express": "4.13.4",
+    "file-loader": "0.8.5",
+    "fs-extra": "0.26.5",
+    "jshint-jsx": "^0.4.1",
+    "json-loader": "0.5.4",
+    "lodash": "4.1.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "0.13.0",
+    "url-loader": "0.5.7",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
