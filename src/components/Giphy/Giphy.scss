@@ -5,6 +5,8 @@
   border: 1px solid #eee;
   box-sizing: border-box;
   padding: 10px;
+  background: white;
+  border-radius: 5px;
   & * {
     box-sizing: border-box;
   }
@@ -12,4 +14,11 @@
 
 .input {
   width: 100%;
+  &:focus {
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Avenir', sans-serif;
+    font-weight: 700;
+  }
 }

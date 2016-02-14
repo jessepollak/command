@@ -24,6 +24,7 @@ class Input extends React.Component {
   constructor() {
     super()
     this.onChange = this.onChange.bind(this)
+    this.onKeyUp = this.onKeyUp.bind(this)
     this.onSearch = _.debounce(this.onSearch.bind(this), 300)
   }
 
@@ -39,18 +40,26 @@ class Input extends React.Component {
     this.onSearch(event.target.value)
   }
 
+  onKeyUp(event) {
+    if (event.keyCode == 27) {
+      return this.props.onEsc()
+    }
+  }
+
   render() {
     return (
       <input
         type='text'
         name='search'
         className={styles.input}
+        onKeyUp={this.onKeyUp}
         onChange={this.onChange}
       />
     )
   }
 }
 Input.propTypes = {
+  onEsc: React.PropTypes.func.isRequired,
   onSearch: React.PropTypes.func.isRequired
 }
 
@@ -105,14 +114,11 @@ class Giphy extends React.Component {
     this.setState({ IS_LOADING: true })
     search(query)
       .then((results) => {
-        console.log(results)
         this.setState({ results: results })
       })
   }
 
   onSelect(result) {
-    console.log("selected", result)
-
     var value = this.props.element.value
     value += `![${result.slug}](${result.images.fixed_width.url})`
 
@@ -131,7 +137,10 @@ class Giphy extends React.Component {
   render() {
     return (
       <div className={styles.container} style={this.getStyles()}>
-        <Input onSearch={this.search} />
+        <Input
+          onSearch={this.search}
+          onEsc={this.props.onDone}
+        />
         <Results
           results={this.state.results}
           onSelect={this.onSelect}

@@ -18,6 +18,7 @@ function mount(Component, element) {
         element={element}
         onDone={() => {
           ReactDOM.unmountComponentAtNode($container[0])
+          $(element).focus()
         }}
       />,
       $container[0]
