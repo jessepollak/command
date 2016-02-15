@@ -127,10 +127,9 @@ class Giphy extends React.Component {
   }
 
   getStyles() {
-    let absolutePosition = $(this.props.element).offset()
     return {
-      top: absolutePosition.top,
-      left: absolutePosition.left
+      top: this.props.top,
+      left: this.props.left
     }
   }
 

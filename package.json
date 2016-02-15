@@ -18,7 +18,8 @@
     "lodash": "^4.3.0",
     "react": "0.14.7",
     "react-dom": "^0.14.7",
-    "redux": "^3.3.1"
+    "redux": "^3.3.1",
+    "textarea-helper": "^0.3.1"
   },
   "devDependencies": {
     "babel-cli": "6.4.5",
@@ -33,6 +34,7 @@
     "express": "4.13.4",
     "file-loader": "0.8.5",
     "fs-extra": "0.26.5",
+    "imports-loader": "^0.6.5",
     "jshint-jsx": "^0.4.1",
     "json-loader": "0.5.4",
     "lodash": "4.1.0",

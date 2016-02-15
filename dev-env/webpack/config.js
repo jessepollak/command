@@ -187,6 +187,13 @@ function configGenerator(Manifest) {
           }
         ])
 
+        loaders = loaders.concat([
+        {
+          test: /textarea\-helper\/.+\.(jsx|js)$/,
+          loader: 'imports?jQuery=jquery,$=jquery,this=>window'
+        }
+        ])
+
         // Json
         loaders = loaders.concat([
           {
