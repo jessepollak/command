@@ -3,6 +3,7 @@ import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import styles from './Giphy.scss'
+import * as Editable from 'lib/editable'
 
 const API_BASE = 'https://api.giphy.com/v1/gifs/search'
 const API_KEY = 'dc6zaTOxFJmzC'
@@ -110,19 +111,25 @@ class Giphy extends React.Component {
     this.onSelect = this.onSelect.bind(this)
   }
 
+  componentWillUnmount() {
+    if (this.pendingRequest) this.pendingRequest.cancel()
+  }
+
   search(query) {
     this.setState({ IS_LOADING: true })
-    search(query)
+    this.pendingRequest = search(query)
       .then((results) => {
+        this.pendingRequest = null
         this.setState({ results: results })
       })
   }
 
   onSelect(result) {
-    var value = this.props.element.value
-    value += `![${result.slug}](${result.images.fixed_width.url})`
+    Editable.appendText(
+      this.props.$element,
+      `![${result.slug}](${result.images.fixed_width.url})`
+    )
 
-    this.props.element.value = value
     this.props.onDone()
   }
 
@@ -149,7 +156,7 @@ class Giphy extends React.Component {
   }
 }
 Giphy.propTypes = {
-  element: React.PropTypes.object.isRequired,
+  $element: React.PropTypes.object.isRequired,
   onDone: React.PropTypes.func.isRequired
 }
 Giphy.regex = /\/giphy$/

@@ -14,11 +14,12 @@
 
 .input {
   width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 700;
+
   &:focus {
     outline: none;
-    padding: 10px;
-    font-size: 20px;
-    font-family: 'Avenir', sans-serif;
-    font-weight: 700;
   }
 }

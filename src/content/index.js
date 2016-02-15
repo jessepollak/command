@@ -2,12 +2,23 @@ import $ from 'jquery'
 window.jQuery = $
 
 import 'textarea-helper'
+import 'vendor/jquery.caret'
+import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Giphy } from 'components'
 
-function mount(Component, element) {
-    console.log('mounting')
+function cleanupCommand(Component, $element) {
+  if ($element.is('textarea, input')) {
+    $element.val($element.val().replace(Component.regex, ""))
+  } else {
+    let element = $element[0]
+    element.innerHTML = element.innerHTML.replace(Component.regex, "")
+  }
+}
+
+
+function mount(Component, $element) {
     var $container = $('.slash__container')
     if (!$container.length) {
       $container = $('<div>')
@@ -15,28 +26,29 @@ function mount(Component, element) {
         .appendTo('body')
     }
 
-    let $element = $(element)
-    $element.val($element.val().replace(Component.regex, ""))
-    let caretPos = $element.textareaHelper('caretPos')
-    let elementPos = $element.offset()
+    Editable.replaceText($element, Component.regex, "")
+    let caretOffset = Editable.getCaretOffset($element)
+    let unmount = () => {
+      ReactDOM.unmountComponentAtNode($container[0])
+      Editable.focus($element)
+    }
 
     ReactDOM.render(
       <Component
-        element={element}
-        top={elementPos.top + caretPos.top}
-        left={elementPos.left + caretPos.left}
-        onDone={() => {
-          ReactDOM.unmountComponentAtNode($container[0])
-          $(element).focus()
-        }}
+        $element={$element}
+        top={caretOffset.top}
+        left={caretOffset.left}
+        onDone={unmount}
       />,
       $container[0]
     )
 }
 
-$('textarea').on('keyup', (e) => {
-  var text = e.target.value
+$('textarea, div[contenteditable="true"]').on('keyup', (e) => {
+  let $element = $(e.target)
+  let text = Editable.getText($element)
   if (text.match(Giphy.regex)) {
-    mount(Giphy, e.target)
+    mount(Giphy, $element)
   }
 })
+
