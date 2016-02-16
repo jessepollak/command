@@ -14,11 +14,12 @@
     "esnext": true
   },
   "dependencies": {
+    "classnames": "^2.2.3",
     "jquery": "^2.2.0",
-    "jquery.caret": "^0.2.1",
     "lodash": "^4.3.0",
     "react": "0.14.7",
     "react-dom": "^0.14.7",
+    "react-spinner": "^0.2.3",
     "redux": "^3.3.1",
     "textarea-helper": "^0.3.1"
   },

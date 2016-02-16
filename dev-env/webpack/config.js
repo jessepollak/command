@@ -18,8 +18,7 @@ var styleLoaders = {
 
 function makeStyleLoaders() {
   return Object.keys(styleLoaders).map(function(ext) {
-    // NOTE Enable autoprefixer loader
-    var prefix = 'css-loader?modules&sourceMap'//!autoprefixer-loader?browsers=last 2 version';
+    var prefix = 'css-loader?modules&sourceMap'
     var extLoaders = prefix + styleLoaders[ext];
     var loader = 'style-loader!' + extLoaders;
 
@@ -177,6 +176,10 @@ function configGenerator(Manifest) {
 
         // Styles
         loaders = loaders.concat(makeStyleLoaders())
+        loaders = loaders.concat({
+          test: /react-spinner\.css$/,
+          loader: 'style-loader!css-loader'
+        })
 
         // Scripts
         loaders = loaders.concat([

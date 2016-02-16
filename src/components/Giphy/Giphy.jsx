@@ -2,6 +2,10 @@ import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Spinner from 'react-spinner'
+import classnames from 'classnames'
+
+import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
 import * as Editable from 'lib/editable'
 
@@ -14,11 +18,19 @@ function search(query) {
     {
       api_key: API_KEY,
       q: query,
-      limit: 5
+      limit: 20
     }
   ).then((data) => {
     return data.data
   })
+}
+
+let Icon = (props) => {
+  return (
+    <div className={styles.icon}>
+      <img src={require('icons/slash.png')} />
+    </div>
+  )
 }
 
 class Input extends React.Component {
@@ -52,6 +64,7 @@ class Input extends React.Component {
       <input
         type='text'
         name='search'
+        placeholder="Search GIFs..."
         className={styles.input}
         onKeyUp={this.onKeyUp}
         onChange={this.onChange}
@@ -67,10 +80,12 @@ Input.propTypes = {
 class Result extends React.Component {
   render() {
     return (
-      <img
-        src={this.props.images.fixed_width_small.url}
-        onClick={this.props.onClick}
-      />
+        <div className={styles.result}>
+          <img
+            src={this.props.images.fixed_width_small.url}
+            onClick={this.props.onClick}
+          />
+        </div>
     )
   }
 }
@@ -89,7 +104,7 @@ class Results extends React.Component {
     })
 
     return (
-      <div>
+      <div className={styles.results}>
         { children }
       </div>
     )
@@ -104,7 +119,8 @@ class Giphy extends React.Component {
     super();
     this.state = {
       results: [],
-      IS_LOADING: false
+      IS_LOADING: false,
+      query: ""
     }
 
     this.search = this.search.bind(this)
@@ -116,11 +132,16 @@ class Giphy extends React.Component {
   }
 
   search(query) {
-    this.setState({ IS_LOADING: true })
+    if (query == "") {
+      return this.setState({ query: query, IS_LOADING: false })
+    }
+
+    this.setState({ query: query, IS_LOADING: true, results: [] })
+
     this.pendingRequest = search(query)
       .then((results) => {
         this.pendingRequest = null
-        this.setState({ results: results })
+        this.setState({ results: results, IS_LOADING: false })
       })
   }
 
@@ -141,16 +162,31 @@ class Giphy extends React.Component {
   }
 
   render() {
+    let toRender
+    if (this.state.IS_LOADING) {
+      toRender = <Spinner />
+    } else {
+      if (this.state.results.length) {
+        toRender = <Results
+          results={this.state.results}
+          onSelect={this.onSelect}
+        />
+      } else {
+        toRender = <p className={styles.noResults}>No results.</p>
+      }
+    }
+
+    var classes = [styles.container]
+    if (this.state.query != "") classes.push(styles['container--hasQuery'])
+
     return (
-      <div className={styles.container} style={this.getStyles()}>
+      <div className={classnames(classes)} style={this.getStyles()}>
         <Input
           onSearch={this.search}
           onEsc={this.props.onDone}
         />
-        <Results
-          results={this.state.results}
-          onSelect={this.onSelect}
-        />
+        { toRender }
+        <Icon />
       </div>
     )
   }

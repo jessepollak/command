@@ -19,5 +19,8 @@
     "16": "icons/webpack-16.png",
     "32": "icons/webpack-32.png",
     "128": "icons/webpack-128.png"
-  }
+  },
+  "web_accessible_resources": [
+    "icons/*"
+  ]
 }
