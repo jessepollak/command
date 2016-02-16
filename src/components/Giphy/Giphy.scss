@@ -2,6 +2,7 @@ $color-red: #FF475E;
 
 .container {
   position: absolute;
+  z-index: 9999;
   width: 400px;
   box-sizing: border-box;
   padding: 10px;

@@ -44,11 +44,18 @@ function mount(Component, $element) {
     )
 }
 
-$('textarea.comment-form-textarea').on('keyup', (e) => {
+function listen(e) {
   let $element = $(e.target)
   let text = Editable.getText($element)
   if (text.match(Giphy.regex)) {
     mount(Giphy, $element)
   }
-})
+}
 
+const SELECTOR = 'textarea, div[contenteditable="true"]'
+$(document).on('focus', SELECTOR, (e) => {
+  $(e.target).on('keyup', listen)
+})
+$(document).on('blur', SELECTOR, (e) => {
+  $(e.target).off('keyup', listen)
+})
