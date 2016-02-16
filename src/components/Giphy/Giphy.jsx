@@ -146,11 +146,10 @@ class Giphy extends React.Component {
   }
 
   onSelect(result) {
-    Editable.appendText(
-      this.props.$element,
-      `![${result.slug}](${result.images.original.url})`
-    )
-
+    Editable.appendImage(this.props.$element, {
+      src: result.images.original.url,
+      alt: result.slug
+    })
     this.props.onDone()
   }
 

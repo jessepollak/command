@@ -31,9 +31,23 @@ export function appendText($element, text) {
   setText($element, getText($element) + text)
 }
 
+export function appendImage($element, options) {
+  let text
+  if ($element.is('textarea, input')) {
+    text = `![${options.alt}](${options.src})`
+  } else {
+    text = `<img src="${options.src}" alt="${options.alt}" />`
+  }
+
+  appendText(
+    $element,
+    text
+  )
+}
+
 export function focus($element) {
   if ($element.is('textarea, input')) {
-    return $element.focus()
+    $element.focus()
   } else {
     let element = $element.get(0)
     var range = document.createRange()
