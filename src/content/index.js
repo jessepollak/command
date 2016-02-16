@@ -44,7 +44,7 @@ function mount(Component, $element) {
     )
 }
 
-$('textarea, div[contenteditable="true"]').on('keyup', (e) => {
+$('textarea.comment-form-textarea').on('keyup', (e) => {
   let $element = $(e.target)
   let text = Editable.getText($element)
   if (text.match(Giphy.regex)) {
