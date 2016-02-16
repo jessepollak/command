@@ -27,9 +27,9 @@ function search(query) {
 
 let Icon = (props) => {
   return (
-    <div className={styles.icon}>
+    <a className={styles.icon} href="https://github.com/jessepollak/slash" target="_blank">
       <img src={require('icons/slash.png')} />
-    </div>
+    </a>
   )
 }
 
@@ -148,7 +148,7 @@ class Giphy extends React.Component {
   onSelect(result) {
     Editable.appendText(
       this.props.$element,
-      `![${result.slug}](${result.images.fixed_width.url})`
+      `![${result.slug}](${result.images.original.url})`
     )
 
     this.props.onDone()
