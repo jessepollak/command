@@ -2,7 +2,6 @@ import $ from 'jquery'
 import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Giphy } from 'components'
 
 function cleanupCommand(Component, $element) {
   if ($element.is('textarea, input')) {
@@ -12,7 +11,6 @@ function cleanupCommand(Component, $element) {
     element.innerHTML = element.innerHTML.replace(Component.regex, "")
   }
 }
-
 
 function mount(Component, $element) {
     var $container = $('.slash__container')
@@ -40,11 +38,12 @@ function mount(Component, $element) {
     )
 }
 
+import * as Commands from 'components/commands'
 function listen(e) {
   let $element = $(e.target)
   let text = Editable.getText($element)
-  if (text.match(Giphy.regex)) {
-    mount(Giphy, $element)
+  if (text.match(Commands.Giphy.regex)) {
+    mount(Commands.Giphy, $element)
   }
 }
 

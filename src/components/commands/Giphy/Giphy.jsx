@@ -9,6 +9,7 @@ import NativeListener from 'react-native-listener'
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
 import * as Editable from 'lib/editable'
+import Container from 'components/Container'
 
 const API_BASE = 'https://api.giphy.com/v1/gifs/search'
 const API_KEY = 'dc6zaTOxFJmzC'
@@ -24,14 +25,6 @@ function search(query) {
   ).then((data) => {
     return data.data
   })
-}
-
-let Icon = (props) => {
-  return (
-    <a className={styles.icon} href="https://github.com/jessepollak/slash" target="_blank">
-      <img src={require('icons/slash.png')} />
-    </a>
-  )
 }
 
 class Input extends React.Component {
@@ -182,18 +175,18 @@ class Giphy extends React.Component {
       }
     }
 
-    var classes = [styles.container]
-    if (this.state.query != "") classes.push(styles['container--hasQuery'])
+    let isExpanded = this.state.query != ""
+    let classes = []
+    if (isExpanded) classes.push(styles.isExpanded)
 
     return (
-      <div className={classnames(classes)} style={this.getStyles()}>
+      <Container isExpanded={isExpanded} style={this.getStyles()} className={classnames(classes)}>
         <Input
           onSearch={this.search}
           onEsc={this.props.onDone}
         />
         { toRender }
-        <Icon />
-      </div>
+      </Container>
     )
   }
 }

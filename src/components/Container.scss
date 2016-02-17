@@ -1,0 +1,60 @@
+.container {
+  position: absolute;
+  z-index: 9999;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  margin-top: -12px;
+  margin-left: -8px;
+  box-shadow: 0 0 0 1px rgba(14,41,57,0.05),0 1px 2px rgba(14,41,57,0.44),inset 0 -1px 2px rgba(14,41,57,0.05);
+
+  height: 90px;
+  overflow: hidden;
+  transition: height 200ms;
+
+  & * {
+    font-family: 'Avenir', sans-serif;
+    box-sizing: border-box;
+  }
+
+  :global {
+    .react-spinner {
+      width: 40px;
+      margin-top: 10px;
+      position: absolute;
+    }
+
+    .react-spinner_bar {
+      background-color: #777;
+    }
+  }
+}
+
+.container--isExpanded {
+  height: 300px;
+}
+
+.icon {
+  width: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.version {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  font-size: 12px;
+  color: #ccc;
+  text-decoration: none;
+  &:hover {
+    color: #bbb;
+  }
+}
