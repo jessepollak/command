@@ -15,7 +15,7 @@ let Icon = (props) => {
 let Version = (props) => {
     return (
       <a className={styles.version} href="https://github.com/jessepollak/slash/releases" target="_blank">
-      v{ Extension.getVersion() }
+      Private beta v{ Extension.getVersion() }
       </a>
     )
 }
