@@ -201,6 +201,6 @@ Giphy.propTypes = {
   $element: React.PropTypes.object.isRequired,
   onDone: React.PropTypes.func.isRequired
 }
-Giphy.regex = /\/giphy(\s|$)/
+Giphy.regex = /\/giphy/
 
 export default Giphy
