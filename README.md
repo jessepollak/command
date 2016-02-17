@@ -4,13 +4,13 @@ Making the web better with Slack-like slash commands.
 
 ![slash](resources/slash.gif)
 
-## How to use
+## Usage
 
 1. Install the Slash extension [here](https://chrome.google.com/webstore/detail/slash/dkblejpmbmienbjpinbgebodokhpbkme)
 2. Type a slash command like `/giphy` in any text field
 3. Win!
 
-### Give it a try
+Now, would you like to give it a try?
 
 1. Go to the [welcome Github issue](https://github.com/jessepollak/slash/issues/1)
 2. Click on the comment field at the bottom, say something witty, then type `/giphy`
