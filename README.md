@@ -16,6 +16,10 @@ Now, would you like to give it a try?
 2. Click on the comment field at the bottom, say something witty, then type `/giphy`
 3. Add the perfect GIF
 
+## Current commands
+
+* */giphy* - easily search and add a GIF to your text
+
 ## Contributing
 
 Install the necessary node modules and start the development server.
