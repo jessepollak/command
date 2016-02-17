@@ -1,6 +1,7 @@
 // Native
 import fs from 'fs-extra';
 import { exec } from 'child_process'
+import archiver from 'archiver'
 
 // npm
 import clc from 'cli-color';
@@ -24,11 +25,23 @@ const webpackConfig = makeWebpackConfig(manifest)
 const building = webpackBuild(webpackConfig)
 
 building.then(() => {
-  console.error(clc.green("Building done"))
+  console.log(clc.green("\n-- Building done --\n"))
 
   // Build extension
   // TODO try detect system and Chrome path. Default is OSX :)
   const chromeBinaryPath = process.env.CHROME_BIN || '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+
+  console.log(clc.yellow("Packaging zip"))
+
+  var output = fs.createWriteStream('release/build.zip')
+  var archive = archiver('zip')
+
+  archive.pipe(output)
+  archive.bulk([
+      { expand: true, cwd: 'release/build', src: ['**'], dest: 'build'}
+  ])
+  archive.finalize()
+  console.log(clc.green("Done"))
 
   console.log(clc.yellow(`Packing extension into '${paths.build}'`))
   exec(`\$('${chromeBinaryPath}' --pack-extension=${paths.build})`, (error, stdout, stderr) => {
