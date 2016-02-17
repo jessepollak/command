@@ -1,3 +1,8 @@
+import 'vendor/jquery.caret'
+import 'textarea-helper'
+import rangy from 'rangy/lib/rangy-selectionsaverestore.js'
+import caretToEnd from 'caret-to-end'
+
 export function getText($element) {
   if ($element.is('textarea, input')) {
     return $element.val()
@@ -15,7 +20,9 @@ export function replaceText($element, find, replace) {
     $element.val($element.val().replace(find, replace))
   } else {
     let element = $element[0]
+    let selection = rangy.saveSelection()
     element.innerHTML = element.innerHTML.replace(find, replace)
+    rangy.restoreSelection(selection)
   }
 }
 
@@ -46,16 +53,5 @@ export function appendImage($element, options) {
 }
 
 export function focus($element) {
-  if ($element.is('textarea, input')) {
-    $element.focus()
-  } else {
-    let element = $element.get(0)
-    var range = document.createRange()
-    var selection = window.getSelection()
-    range.setStart(element, 1)
-    range.collapse(true)
-    selection.removeAllRanges()
-    selection.addRange(range)
-    element.focus()
-  }
+  caretToEnd($element[0])
 }

@@ -1,8 +1,4 @@
 import $ from 'jquery'
-window.jQuery = $
-
-import 'textarea-helper'
-import 'vendor/jquery.caret'
 import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'

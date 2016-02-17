@@ -140,8 +140,10 @@ class Giphy extends React.Component {
 
     this.pendingRequest = search(query)
       .then((results) => {
-        this.pendingRequest = null
         this.setState({ results: results, IS_LOADING: false })
+      })
+      .always(() => {
+        this.pendingRequest = null
       })
   }
 
@@ -150,6 +152,7 @@ class Giphy extends React.Component {
       src: result.images.original.url,
       alt: result.slug
     })
+
     this.props.onDone()
   }
 
@@ -194,6 +197,6 @@ Giphy.propTypes = {
   $element: React.PropTypes.object.isRequired,
   onDone: React.PropTypes.func.isRequired
 }
-Giphy.regex = /\/giphy$/
+Giphy.regex = /\/giphy/
 
 export default Giphy
