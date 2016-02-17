@@ -195,5 +195,6 @@ Giphy.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
 Giphy.regex = /\/giphy/
+Giphy.trigger = "giphy"
 
 export default Giphy

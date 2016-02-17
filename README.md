@@ -19,6 +19,7 @@ Now, would you like to give it a try?
 ## Current commands
 
 * */giphy* - easily search and add a GIF to your text
+* */help* - learn how to use slash
 
 ## Contributing
 

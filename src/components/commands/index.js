@@ -1,2 +1,3 @@
 import Giphy from './Giphy/Giphy'
-export { Giphy }
+import Help from './Help/Help'
+export { Giphy, Help }

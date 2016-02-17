@@ -1,0 +1,92 @@
+@import "../styles/settings";
+
+:global {
+
+  .atwho-view {
+    position:absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: black;
+    min-width: 120px;
+    z-index: 11110 !important;
+
+    border-radius: 3px;
+    background: white;
+    border: 1px solid #DDD;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+
+    & * {
+      font-size: 12px;
+      line-height: 14px;
+      font-family: 'Avenir', sans-serif;
+      font-weight: 400;
+    }
+  }
+
+  .atwho-view-icon {
+    width: 10px;
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .atwho-view .atwho-header {
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border-bottom: solid 1px #eaeff1;
+    color: #6f8092;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .atwho-view .atwho-header .small {
+    color: #6f8092;
+    float: right;
+    padding-top: 2px;
+    margin-right: -5px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .atwho-view .atwho-header:hover {
+    cursor: default;
+  }
+
+  .atwho-view .cur {
+    color: $color-red;
+  }
+  .atwho-view .cur small {
+    color: $color-red;
+  }
+  .atwho-view strong {
+    color: $color-red;
+  }
+  .atwho-view .cur strong {
+    font-weight: 700;
+  }
+
+  .atwho-view ul {
+    list-style:none;
+    padding:0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .atwho-view ul li {
+    display: block;
+    padding: 5px;
+    border-bottom: 1px solid #DDD;
+    cursor: pointer;
+  }
+  .atwho-view small {
+    font-size: smaller;
+    color: #777;
+    font-weight: normal;
+  }
+
+}

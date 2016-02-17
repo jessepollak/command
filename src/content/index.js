@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import * as At from 'lib/at'
 import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -39,16 +40,20 @@ function mount(Component, $element) {
 }
 
 import * as Commands from 'components/commands'
+
 function listen(e) {
   let $element = $(e.target)
   let text = Editable.getText($element)
   if (text.match(Commands.Giphy.regex)) {
     mount(Commands.Giphy, $element)
+  } else if (text.match(Commands.Help.regex)) {
+    mount(Commands.Help, $element)
   }
 }
 
 const SELECTOR = 'textarea, div[contenteditable="true"]'
 $(document).on('focus', SELECTOR, (e) => {
+  At.setup($(e.target))
   $(e.target).on('keyup', listen)
 })
 $(document).on('blur', SELECTOR, (e) => {
