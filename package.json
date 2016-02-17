@@ -21,6 +21,7 @@
     "rangy": "^1.3.0",
     "react": "0.14.7",
     "react-dom": "^0.14.7",
+    "react-native-listener": "^1.0.1",
     "react-spinner": "^0.2.3",
     "redux": "^3.3.1",
     "textarea-helper": "^0.3.1"

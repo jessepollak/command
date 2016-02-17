@@ -135,7 +135,6 @@ EditableCaret = (function() {
           left: rect.left + rect.width,
           top: rect.top
         };
-        clonedRange.detach();
       }
       if (!offset || (offset != null ? offset.height : void 0) === 0) {
         clonedRange = range.cloneRange();
@@ -149,7 +148,6 @@ EditableCaret = (function() {
           top: rect.top
         };
         shadowCaret.remove();
-        clonedRange.detach();
       }
     } else if (oDocument.selection) {
       offset = this.getOldIEOffset();

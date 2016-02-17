@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
+import NativeListener from 'react-native-listener'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
@@ -54,6 +55,7 @@ class Input extends React.Component {
   }
 
   onKeyUp(event) {
+    event.stopPropagation()
     if (event.keyCode == 27) {
       return this.props.onEsc()
     }
@@ -61,14 +63,16 @@ class Input extends React.Component {
 
   render() {
     return (
-      <input
-        type='text'
-        name='search'
-        placeholder="Search GIFs..."
-        className={styles.input}
-        onKeyUp={this.onKeyUp}
-        onChange={this.onChange}
-      />
+      <NativeListener onKeyDown={this.onKeyUp}>
+        <input
+          type='text'
+          name='search'
+          placeholder="Search GIFs..."
+          className={styles.input}
+          onKeyDown={this.onKeyUp}
+          onChange={this.onChange}
+        />
+      </NativeListener>
     )
   }
 }
