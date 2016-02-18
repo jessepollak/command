@@ -3,6 +3,7 @@ import * as At from 'lib/at'
 import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import * as Types from 'types'
 
 function cleanupCommand(Component, $element) {
   if ($element.is('textarea, input')) {
@@ -23,7 +24,18 @@ function mount(Component, $element) {
 
     Editable.replaceText($element, Component.regex, "")
     let caretOffset = Editable.getCaretOffset($element)
-    let unmount = () => {
+    let onDone = (result) => {
+      if (result) {
+        if (result instanceof Types.Image) {
+          Editable.appendImage($element, {
+            src: result.src,
+            alt: result.alt
+          })
+        } else if (result instanceof Types.Redirect) {
+          window.open(result.url, result.target)
+        }
+      }
+
       ReactDOM.unmountComponentAtNode($container[0])
       Editable.focus($element)
     }
@@ -33,7 +45,7 @@ function mount(Component, $element) {
         $element={$element}
         top={caretOffset.top}
         left={caretOffset.left}
-        onDone={unmount}
+        onDone={onDone}
       />,
       $container[0]
     )

@@ -1,9 +1,17 @@
 import React from 'react'
+import { Redirect } from 'types'
 
 class Help extends React.Component {
   componentDidMount() {
-    window.open('https://github.com/jessepollak/slash', '_blank')
-    setTimeout(this.props.onDone, 100)
+    setTimeout (
+      () => {
+        this.props.onDone(new Redirect({
+          url: 'https://github.com/jessepollak/slash',
+          target: '_blank'
+        }))
+      },
+      0
+    )
   }
 
   render() {

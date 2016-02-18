@@ -9,6 +9,7 @@ import NativeListener from 'react-native-listener'
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
 import * as Editable from 'lib/editable'
+import * as Types from 'types'
 import Container from 'components/Container'
 
 const API_BASE = 'https://api.giphy.com/v1/gifs/search'
@@ -145,12 +146,11 @@ class Giphy extends React.Component {
   }
 
   onSelect(result) {
-    Editable.appendImage(this.props.$element, {
+    this.props.onDone(new Types.Image({
       src: result.images.original.url,
-      alt: result.slug
-    })
-
-    this.props.onDone()
+      alt: result.slug,
+      url: result.url
+    }))
   }
 
   getStyles() {
