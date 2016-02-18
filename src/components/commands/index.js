@@ -11,14 +11,14 @@ const COMMANDS = {
 
 export let MATCHES = pluck(COMMANDS, 'match')
 export let MATCH_TO_COMMAND = indexBy(COMMANDS, 'match')
-export let MATCH_REGEX = new RegExp(`(?:^|\\s)\/(${MATCHES.join("|")})`)
+export let MATCH_REGEX = new RegExp(`(?:^|\\s|>)\/(${MATCHES.join("|")})`)
 
 export function match(text) {
   let match = text.match(MATCH_REGEX)
   if (match) {
     return {
       command: MATCH_TO_COMMAND[match[1]],
-      match: match[0]
+      match: '/' + match[1]
     }
   } else {
     return {}
