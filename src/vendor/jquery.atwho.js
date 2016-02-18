@@ -381,6 +381,7 @@ Controller = (function() {
     this.at = at1;
     this.$inputor = this.app.$inputor;
     this.id = this.$inputor[0].id || this.uid();
+    this.id = this.id.replace(':', '\\:')
     this.expectedQueryCBId = null;
     this.setting = null;
     this.query = null;
