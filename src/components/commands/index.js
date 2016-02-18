@@ -1,6 +1,6 @@
-import _ from 'lodash'
 import indexBy from 'lodash.indexBy'
 import pluck from 'lodash.pluck'
+
 import Giphy from './Giphy/Giphy'
 import Help from './Help/Help'
 

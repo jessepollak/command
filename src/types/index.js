@@ -1,3 +1,3 @@
-import Image from './image'
-import Redirect from './redirect'
+import Image from './Image'
+import Redirect from './Redirect'
 export { Image, Redirect }

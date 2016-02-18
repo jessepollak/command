@@ -7,10 +7,6 @@
       "js": ["content/index.js"]
     }
   ],
-  "background": {
-    "persistent": true,
-    "scripts": ["background/index.js"]
-  },
   "permissions": [
     "background",
     "tabs"

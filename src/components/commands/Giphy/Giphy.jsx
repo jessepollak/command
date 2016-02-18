@@ -8,7 +8,6 @@ import NativeListener from 'react-native-listener'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
-import * as Editable from 'lib/editable'
 import * as Types from 'types'
 import Container from 'components/Container'
 
