@@ -11,7 +11,7 @@ const COMMANDS = {
 
 export let MATCHES = pluck(COMMANDS, 'match')
 export let MATCH_TO_COMMAND = indexBy(COMMANDS, 'match')
-export let MATCH_REGEX = new RegExp(`\/(${MATCHES.join("|")})`)
+export let MATCH_REGEX = new RegExp(`(?:^|\\s)\/(${MATCHES.join("|")})`)
 
 export function match(text) {
   let match = text.match(MATCH_REGEX)
