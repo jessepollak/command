@@ -4,6 +4,7 @@ import * as Editable from 'lib/editable'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as Types from 'types'
+import * as Commands from 'components/commands'
 
 function cleanupCommand(Component, $element) {
   if ($element.is('textarea, input')) {
@@ -14,7 +15,7 @@ function cleanupCommand(Component, $element) {
   }
 }
 
-function mount(Component, $element) {
+function mount(Component, match, $element) {
     var $container = $('.slash__container')
     if (!$container.length) {
       $container = $('<div>')
@@ -22,7 +23,7 @@ function mount(Component, $element) {
         .appendTo('body')
     }
 
-    Editable.replaceText($element, Component.regex, "")
+    Editable.replaceText($element, match, "")
     let caretOffset = Editable.getCaretOffset($element)
     let onDone = (result) => {
       if (result) {
@@ -51,15 +52,13 @@ function mount(Component, $element) {
     )
 }
 
-import * as Commands from 'components/commands'
 
 function listen(e) {
   let $element = $(e.target)
   let text = Editable.getText($element)
-  if (text.match(Commands.Giphy.regex)) {
-    mount(Commands.Giphy, $element)
-  } else if (text.match(Commands.Help.regex)) {
-    mount(Commands.Help, $element)
+  let { command, match } = Commands.match(text)
+  if (command) {
+    mount(command, match, $element)
   }
 }
 

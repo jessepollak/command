@@ -18,7 +18,6 @@ class Help extends React.Component {
     return <div></div>
   }
 }
-Help.regex = /\/help/
-Help.trigger = "help"
+Help.match = "help"
 
 export default Help
