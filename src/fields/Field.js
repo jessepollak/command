@@ -92,8 +92,14 @@ class Field {
   add(type) {
     if (!type) return
 
-    let fnName = `add${type.constructor.name}`
-    return this[fnName](type)
+    switch (type.constructor) {
+      case Types.Image:
+        return this.addImage(type)
+      case Types.Redirect:
+        return this.addRedirect(type)
+      default:
+        throw new Error("Not implemented error")
+    }
   }
 
   addImage(image) {
@@ -103,8 +109,6 @@ class Field {
   addRedirect(redirect) {
     window.open(redirect.url, redirect.target)
   }
-
-
 }
 
 export default Field
