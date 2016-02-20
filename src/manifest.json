@@ -18,5 +18,6 @@
   },
   "web_accessible_resources": [
     "icons/*"
-  ]
+  ],
+  "content_security_policy": "media-src 'self';"
 }

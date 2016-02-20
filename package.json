@@ -25,6 +25,7 @@
     "react-dom": "^0.14.7",
     "react-native-listener": "^1.0.1",
     "react-spinner": "^0.2.3",
+    "react-webcam": "0.0.9",
     "redux": "^3.3.1",
     "textarea-helper": "^0.3.1"
   },

@@ -1,0 +1,37 @@
+@import "../../../styles/settings";
+
+.video {
+  height: 300px;
+  width: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+.button {
+  $size: 40px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -$size / 2;
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+  box-shadow: 0 0 0 2px black, 0 0 0 4px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
+  z-index: 2;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 0 2px black, 0 0 0 4px rgba(255, 255, 255, 1);
+  }
+  &:active {
+    box-shadow: 0 0 0 2px black, 0 0 0 4px $color-red;
+  }
+}
+

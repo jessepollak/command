@@ -3,10 +3,12 @@ import pluck from 'lodash.pluck'
 
 import Giphy from './Giphy/Giphy'
 import Help from './Help/Help'
+import Selfie from './Selfie/Selfie'
 
 const COMMANDS = {
   Giphy,
-  Help
+  Help,
+  Selfie
 }
 
 export let MATCHES = pluck(COMMANDS, 'match')
