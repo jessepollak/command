@@ -183,7 +183,6 @@ class Giphy extends React.Component {
   }
 }
 Giphy.propTypes = {
-  $element: React.PropTypes.object.isRequired,
   onDone: React.PropTypes.func.isRequired
 }
 Giphy.match = "giphy"

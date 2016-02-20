@@ -37,5 +37,10 @@ let Container = (props) => {
     </div>
   )
 }
+Container.propTypes = {
+  top: React.PropTypes.number.isRequired,
+  left: React.PropTypes.number.isRequired,
+  className: React.PropTypes.string
+}
 
 export default Container
