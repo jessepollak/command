@@ -152,13 +152,6 @@ class Giphy extends React.Component {
     }))
   }
 
-  getStyles() {
-    return {
-      top: this.props.top,
-      left: this.props.left
-    }
-  }
-
   render() {
     let toRender
     if (this.state.IS_LOADING) {
@@ -179,7 +172,7 @@ class Giphy extends React.Component {
     if (isExpanded) classes.push(styles.isExpanded)
 
     return (
-      <Container isExpanded={isExpanded} style={this.getStyles()} className={classnames(classes)}>
+      <Container isExpanded={isExpanded} className={classnames(classes)} {...this.props}>
         <Input
           onSearch={this.search}
           onEsc={this.props.onDone}

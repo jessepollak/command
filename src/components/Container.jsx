@@ -21,11 +21,16 @@ let Version = (props) => {
 }
 
 let Container = (props) => {
+  let style = {
+    top: props.top,
+    left: props.left
+  }
+
   var classes = [styles.container, props.className]
   if (props.isExpanded) classes.push(styles['container--isExpanded'])
 
   return (
-    <div className={classnames(classes)} style={props.style}>
+    <div className={classnames(classes)} style={style}>
       { props.children }
       <Icon />
       <Version />
