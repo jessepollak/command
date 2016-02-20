@@ -15,7 +15,7 @@ class Field {
   }
 
   observe() {
-    At.setup(this.$element)
+    this.setupQuickSelect()
     this.$element.on('keyup', this.listen)
     this.$element.on('blur', (e) => {
       this.$element.off('keup', this.listen)
@@ -27,6 +27,10 @@ class Field {
     if (command) {
       this.mount(command, match)
     }
+  }
+
+  setupQuickSelect() {
+    At.setup(this.$element)
   }
 
   getText() {
