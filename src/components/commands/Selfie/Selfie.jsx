@@ -112,5 +112,6 @@ Selfie.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
 Selfie.match = "selfie"
+Selfie.icon = require('./Selfie.png')
 
 export default Selfie
