@@ -908,7 +908,7 @@ var View;
 View = (function() {
   function View(context) {
     this.context = context;
-    this.$el = $(`<div class='atwho-view'><ul class='atwho-view-ul'></ul><img src='${require("icons/slash.png")}' class='atwho-view-icon' /></div>`);
+    this.$el = $(`<div class='atwho-view'><ul class='atwho-view-ul'></ul><img src='${require("icons/command.png")}' class='atwho-view-icon' /></div>`);
     this.$elUl = this.$el.children();
     this.timeoutID = null;
     this.context.$el.append(this.$el);

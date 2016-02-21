@@ -84,10 +84,10 @@ class Field {
   }
 
   getContainer() {
-    let $container = $('.slash__container')
+    let $container = $('.command__container')
     if (!$container.length) {
       $container = $('<div>')
-        .addClass('slash__container')
+        .addClass('command__container')
         .appendTo('body')
     }
     return $container

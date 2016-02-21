@@ -6,7 +6,7 @@ class Help extends React.Component {
     setTimeout (
       () => {
         this.props.onDone(new Redirect({
-          url: 'https://github.com/jessepollak/slash',
+          url: 'https://github.com/jessepollak/command',
           target: '_blank'
         }))
       },
