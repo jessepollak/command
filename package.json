@@ -1,6 +1,6 @@
 {
-  "name": "Slash",
-  "version": "0.0.7",
+  "name": "Command",
+  "version": "0.0.8",
   "description": "Making the web better with Slack-like slash commands.",
   "private": true,
   "scripts": {

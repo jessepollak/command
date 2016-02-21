@@ -27,10 +27,10 @@
 
   .atwho-view-icon {
     width: 10px;
-    float: right;
+    float: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-right: 5px;
+    margin-left: 5px;
   }
 
   .atwho-view .atwho-header {
@@ -78,11 +78,19 @@
   }
 
   .atwho-view ul li {
-    display: block;
     padding: 5px;
+    padding-bottom: 7px;
+    display: block;
     border-bottom: 1px solid #DDD;
     cursor: pointer;
   }
+
+  .atwho-view ul li img {
+    width: 16px;
+    vertical-align: middle;
+    float: right;
+  }
+
   .atwho-view small {
     font-size: smaller;
     color: #777;

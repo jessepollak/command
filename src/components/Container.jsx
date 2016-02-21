@@ -6,15 +6,15 @@ import styles from './Container.scss'
 
 let Icon = (props) => {
   return (
-    <a className={styles.icon} href="https://github.com/jessepollak/slash" target="_blank">
-      <img src={require('icons/slash.png')} />
+    <a className={styles.icon} href="https://github.com/jessepollak/command" target="_blank">
+      <img src={require('icons/command.png')} />
     </a>
   )
 }
 
 let Version = (props) => {
     return (
-      <a className={styles.version} href="https://github.com/jessepollak/slash/releases" target="_blank">
+      <a className={styles.version} href="https://github.com/jessepollak/command/releases" target="_blank">
       Private beta v{ Extension.getVersion() }
       </a>
     )

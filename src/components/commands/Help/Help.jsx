@@ -6,7 +6,7 @@ class Help extends React.Component {
     setTimeout (
       () => {
         this.props.onDone(new Redirect({
-          url: 'https://github.com/jessepollak/slash',
+          url: 'https://github.com/jessepollak/command',
           target: '_blank'
         }))
       },
@@ -19,5 +19,6 @@ class Help extends React.Component {
   }
 }
 Help.match = "help"
+Help.icon = require('./Help.png')
 
 export default Help

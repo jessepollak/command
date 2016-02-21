@@ -186,5 +186,6 @@ Giphy.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
 Giphy.match = "giphy"
+Giphy.icon = require('./Giphy.png')
 
 export default Giphy
