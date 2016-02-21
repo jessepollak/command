@@ -52,6 +52,9 @@
   font-size: 12px;
   color: #ccc;
   text-decoration: none;
+  &:visited {
+    color: #ccc;
+  }
   &:hover {
     color: #bbb;
   }

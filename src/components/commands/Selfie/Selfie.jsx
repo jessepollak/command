@@ -2,9 +2,11 @@ import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
+React.findDOMNode = ReactDOM.findDOMNode
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
 import Webcam from 'react-webcam'
+import Imgur from 'lib/imgur'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Selfie.scss'
@@ -13,7 +15,6 @@ import Container from 'components/Container'
 
 const STATES = {
   LOADING: 'loading',
-  REQUESTING_PERMISSION: 'requesting_permission',
   HAS_PERMISSION: 'has_permission'
 }
 
@@ -61,17 +62,33 @@ class Selfie extends React.Component {
 
   onTake() {
     let screenshot = this.refs.webcam.getScreenshot()
-    debugger
-    this.props.onDone(new Types.Image({
-      src: screenshot,
-      alt: 'selfie'
-    }))
+
+    this.setState({
+      STATE: STATES.IS_LOADING,
+      image: screenshot
+    })
+
+    Imgur.upload({
+      data: screenshot.replace(/.*base64\,/, ''),
+      type: 'base64'
+    }).then((data) => {
+      this.props.onDone(new Types.Image({
+        src: data.link,
+        alt: 'selfie',
+        url: data.link
+      }))
+    })
+
   }
 
   render() {
+    let classes = [styles.container]
+    if (this.state.image) classes.push(styles['container--hasPreview'])
+
     return (
-      <Container isExpanded={true} {...this.props}>
+      <Container isExpanded={true} className={classnames(classes)} {...this.props}>
         <Close onClick={() => { this.props.onDone() }} />
+        { this.state.image ? <img src={this.state.image} className={styles.preview} /> : null }
         <Webcam
           ref='webcam'
           audio={false}
@@ -85,7 +102,7 @@ class Selfie extends React.Component {
           onClick={this.onTake}
         />
         <Spinner_
-          isVisible={this.state.STATE = STATES.IS_LOADING}
+          isVisible={this.state.STATE == STATES.IS_LOADING}
         />
       </Container>
     )

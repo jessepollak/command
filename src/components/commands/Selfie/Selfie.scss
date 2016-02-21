@@ -1,5 +1,16 @@
 @import "../../../styles/settings";
 
+.container {
+  background: black;
+  :global {
+    .react-spinner {
+      z-index: 2;
+    }
+    .react-spinner_bar {
+      background: white;
+    }
+  }
+}
 .video {
   height: 300px;
   width: 400px;
@@ -9,10 +20,21 @@
 }
 .close {
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 10px;
   cursor: pointer;
   z-index: 2;
+  color: white;
+  font-size: 30px;
+  line-height: 20px;
+}
+.preview {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .button {
   $size: 40px;
