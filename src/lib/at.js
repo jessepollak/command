@@ -6,7 +6,8 @@ import * as Commands from 'components/commands'
 export function setup($element) {
   $element.atwho({
     at: "/",
-    data: Commands.MATCHES,
+    data: Commands.getAtData(),
+    displayTpl: "<li>${name}<img src='${icon}' /></li>",
     displayTimeout: 0
   })
 }

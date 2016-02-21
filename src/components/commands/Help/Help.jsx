@@ -19,5 +19,6 @@ class Help extends React.Component {
   }
 }
 Help.match = "help"
+Help.icon = require('./Help.png')
 
 export default Help

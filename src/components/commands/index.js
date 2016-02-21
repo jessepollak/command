@@ -24,3 +24,12 @@ export function match(text) {
     return {}
   }
 }
+
+export function getAtData() {
+  return _.map(COMMANDS, (command) => {
+    return {
+      name: command.match,
+      icon: command.icon
+    }
+  })
+}
