@@ -1,8 +1,9 @@
 ---
 title: Command
 ---
-<div id="home"
+<div id="home">
   <div class="header">
+    <p class="header__callout">built by <a href="https://twitter.com/jessepollak" target="_blank">@jessepollak</a></p>
     <div class="header__text">
       <img src="images/command-white.png" class="header__logo" />
       <h1>Command</h1>
@@ -10,7 +11,6 @@ title: Command
       <div class="header__social">
         <iframe src="https://ghbtns.com/github-btn.html?user=jessepollak&repo=command&type=star&count=true" frameborder="0" scrolling="0" width="73px" height="20px"></iframe>
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://slashcommand.club" data-text="I just started using Command — Making the web better with @slack-like slash commands. Super cool!" data-via="jessepollak" data-related="jessepollak">Tweet</a>
-        <a href="https://twitter.com/jessepollak" class="twitter-follow-button" data-show-count="false">Follow @jessepollak</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
       <script>
@@ -22,7 +22,8 @@ title: Command
         })
       }
       </script>
-      <button onclick="installExtension()" class="button">+ Add to Chrome</button>
+      <button onclick="installExtension()" class="button button--primary">+ Add to Chrome</button>
+      <a href="https://github.com/jessepollak/command" class="button button--secondary" target="_blank">Fork on Github</a>
     </div>
     <img src="images/giphy.gif" class="header__gif" />
     <p class="header__supports">Automatically works on Github, Inbox, Gmail, and every other text field out there.</p>
@@ -43,6 +44,6 @@ title: Command
   </div>
   <div class="footer">
     <h1>Want to give it a try?</h1>
-    <button onclick="chrome.webstore.install()" class="button">+ Add to Chrome</button>
+    <button onclick="chrome.webstore.install()" class="button button--primary">+ Add to Chrome</button>
   </div>
 </div>

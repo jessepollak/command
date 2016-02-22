@@ -24,7 +24,15 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   .button {
-    margin: 30px;
+    margin: 30px 10px 40px 10px;
+  }
+}
+.header__callout {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  a {
+    color: white;
   }
 }
 .header__logo {
@@ -80,17 +88,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 .button {
   display: inline-block;
-  background: $color-green;
-  color: white;
   text-decoration: none;
   padding: 10px 20px;
   font-weight: 700;
   border-radius: 3px;
   border: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  color: #333;
 
   &:hover {
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   }
   &:focus {
     outline: none;
@@ -99,3 +106,12 @@ h1, h2, h3, h4, h5, h6, p {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   }
 }
+.button--primary {
+  background: $color-green;
+  color: white;
+}
+.button--secondary {
+  background: white;
+}
+
+
