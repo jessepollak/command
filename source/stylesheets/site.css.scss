@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6, p {
   background: $color-red;
   color: white;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px;
 
   h2 {
     font-weight: 400;
@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6, p {
 .header__gif {
   border-radius: 5px;
   width: 500px;
+  max-width: 90%;
 }
 .header__social {
   margin-top: 10px;
@@ -57,6 +58,7 @@ h1, h2, h3, h4, h5, h6, p {
   clear: both;
   display: block;
   width: 500px;
+  max-width: 90%;
   border-radius: 3px;
   margin: 20px auto;
 }
