@@ -1,2 +1,51 @@
 @charset "utf-8";
 @import "normalize";
+
+$color-red: #FF475E;
+$color-green: #7ED321;
+
+* {
+  font-family: 'Avenir', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.header {
+  background: $color-red;
+  color: white;
+  text-align: center;
+  padding-bottom: 30px;
+
+  h2 {
+    font-weight: 400;
+  }
+}
+.header__text {
+  padding: 30px 0;
+}
+.header__button {
+  display: inline-block;
+  background: $color-green;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-top: 20px;
+  opacity: .95;
+  &:hover {
+    opacity: 1;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.header__logo {
+  width: 50px;
+}
+.header__gif {
+  border-radius: 5px;
+  width: 500px;
+}
