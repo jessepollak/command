@@ -3,12 +3,13 @@
 
 $color-red: #FF475E;
 $color-green: #7ED321;
+$color-blue: #4A90E2;
 
 * {
   font-family: 'Avenir', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
@@ -16,16 +17,63 @@ h1, h2, h3, h4, h5, h6 {
   background: $color-red;
   color: white;
   text-align: center;
-  padding-bottom: 30px;
+  padding: 60px 0;
 
   h2 {
     font-weight: 400;
   }
+
+  .button {
+    margin: 30px;
+  }
 }
-.header__text {
+.header__logo {
+  width: 50px;
+}
+.header__gif {
+  border-radius: 5px;
+  width: 500px;
+}
+.header__supports {
+  margin-top: 20px;
+}
+
+.command {
   padding: 30px 0;
 }
-.header__button {
+.command__header {
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  h3 {
+    font-size: 40px;
+    margin-bottom: 5px;
+  }
+}
+.command__gif {
+  clear: both;
+  display: block;
+  width: 500px;
+  border-radius: 3px;
+  margin: 20px auto;
+}
+.command--green {
+  background: $color-green;
+}
+.command--blue {
+  background: $color-blue;
+}
+.footer {
+  background: $color-red;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.button {
   display: inline-block;
   background: $color-green;
   color: white;
@@ -33,7 +81,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 20px;
   font-weight: 700;
   border-radius: 3px;
-  margin-top: 20px;
   opacity: .95;
   box-shadow: none;
   border: none;
@@ -43,11 +90,4 @@ h1, h2, h3, h4, h5, h6 {
   &:focus {
     outline: none;
   }
-}
-.header__logo {
-  width: 50px;
-}
-.header__gif {
-  border-radius: 5px;
-  width: 500px;
 }
