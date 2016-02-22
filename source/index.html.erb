@@ -13,7 +13,16 @@ title: Command
         <a href="https://twitter.com/jessepollak" class="twitter-follow-button" data-show-count="false">Follow @jessepollak</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
-      <button onclick="chrome.webstore.install()" class="button">+ Add to Chrome</button>
+      <script>
+      window.installExtension = function() {
+        chrome.webstore.install("https://chrome.google.com/webstore/detail/dkblejpmbmienbjpinbgebodokhpbkme", function() {
+          console.log(arguments)
+        }, function() {
+          console.log(arguments, 'error')
+        })
+      }
+      </script>
+      <button onclick="installExtension()" class="button">+ Add to Chrome</button>
     </div>
     <img src="images/giphy.gif" class="header__gif" />
     <p class="header__supports">Automatically works on Github, Inbox, Gmail, and every other text field out there.</p>
