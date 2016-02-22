@@ -84,13 +84,16 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 10px 20px;
   font-weight: 700;
   border-radius: 3px;
-  opacity: .95;
-  box-shadow: none;
   border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+
   &:hover {
-    opacity: 1;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   }
   &:focus {
     outline: none;
+  }
+  &:active {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   }
 }
