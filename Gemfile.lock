@@ -76,6 +76,8 @@ GEM
       sass (>= 3.4)
       tilt (~> 1.4.1)
       uglifier (~> 2.6)
+    middleman-gh-pages (0.3.0)
+      rake (> 0.9.3)
     middleman-livereload (3.4.6)
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
@@ -99,6 +101,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (10.5.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -119,6 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   middleman (>= 4.0.0)
+  middleman-gh-pages
   middleman-livereload
   tzinfo-data
   wdm (~> 0.1.0)
