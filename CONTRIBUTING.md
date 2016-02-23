@@ -16,7 +16,7 @@ Add the development build of the extension to your browser.
 3. Click on *Load unpacked extension*
 4. Add `command/build`
 
-## Creating an command
+## Creating a command
 
 Creating a new `command` is easy. It requires creating a new command in the `commands` folder and then importing and including it in `commands/index.js`. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`. 
 
