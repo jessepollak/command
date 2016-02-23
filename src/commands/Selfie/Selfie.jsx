@@ -2,11 +2,11 @@ import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
-React.findDOMNode = ReactDOM.findDOMNode
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
 import Webcam from 'react-webcam'
 import Imgur from 'lib/imgur'
+import { mountReactComponent } from 'commands/mount'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Selfie.scss'
@@ -111,7 +111,8 @@ class Selfie extends React.Component {
 Selfie.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
-Selfie.match = "selfie"
-Selfie.icon = require('./Selfie.png')
 
-export default Selfie
+export let match = 'selfie'
+export let icon = require('./Selfie.png')
+export let mount = mountReactComponent.bind(null, Selfie)
+

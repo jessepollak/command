@@ -5,7 +5,7 @@ import * as At from 'lib/at'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as Types from 'types'
-import * as Commands from 'components/commands'
+import * as Commands from 'commands'
 
 class Field {
 
@@ -64,34 +64,14 @@ class Field {
   mount(Component, match) {
       this.replaceText(match, "")
 
-      let $container = this.getContainer()
-      let caretOffset = this.getCaretOffset()
       let onDone = (result) => {
         this.add(result)
-        ReactDOM.unmountComponentAtNode($container[0])
         this.focus()
       }
 
-      ReactDOM.render(
-        <Component
-          $element={this.$element}
-          top={caretOffset.top}
-          left={caretOffset.left}
-          onDone={onDone}
-        />,
-        $container[0]
-      )
+      Component.mount(this, onDone)
   }
 
-  getContainer() {
-    let $container = $('.command__container')
-    if (!$container.length) {
-      $container = $('<div>')
-        .addClass('command__container')
-        .appendTo('body')
-    }
-    return $container
-  }
 
   add(type) {
     if (!type) return
