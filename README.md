@@ -12,13 +12,14 @@ Making the web better with Slack-like slash commands.
 
 Now, would you like to give it a try?
 
-1. Go to the [welcome Github issue](https://github.com/jessepollak/command/issues/1) 2. Click on the comment field at the bottom, say something witty, then type `/giphy`
+1. Go to the [welcome Github issue](https://github.com/jessepollak/command/issues/1)
+2. Click on the comment field at the bottom, say something witty, then type `/giphy`
 3. Add the perfect GIF
 
 ## Current commands
 
 * */giphy* - easily search and add a GIF to your text
-* */selfie* - quickly take and embed a selfie from your webcame
+* */selfie* - quickly take and embed a selfie from your webcam
 * */help* - learn how to use Command
 
 ## Contributing
