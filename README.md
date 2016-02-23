@@ -23,19 +23,7 @@ Now, would you like to give it a try?
 
 ## Contributing
 
-Install the necessary node modules and start the development server.
-
-```bash
-$ npm install
-$ npm run dev
-```
-
-Add the development build of the extension to your browser.
-
-1. Navigate to `chrome://extensions/` in Chrome
-2. Check *Developer Mode*
-3. Click on *Load unpacked extension*
-4. Add `command/build`
+To contribute, check out our [Contributors Guide](CONTRIBUTING.md).
 
 ## Credits
 
