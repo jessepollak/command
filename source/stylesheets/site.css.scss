@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6, p {
   color: #333;
 
   &:hover {
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   }
   &:focus {
     outline: none;
@@ -113,5 +113,23 @@ h1, h2, h3, h4, h5, h6, p {
 .button--secondary {
   background: white;
 }
+.button--github {
+  position: relative;
+  padding-left: 40px;
+  &:before {
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 30px;
+    position: absolute;
+    top: -1px;
+    left: 7px;
+    background-image: url('/images/GitHub-Mark-64px.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
+}
+
 
 
