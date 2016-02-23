@@ -11,11 +11,11 @@ export const SELECTOR = 'textarea, div[contenteditable="true"]'
 export function getField($element) {
   let FieldType
 
-  if (FieldType = getDomainOverriddenField($element)) {
+  if (FieldType = getClassOverriddenField($element)) {
     return new FieldType($element)
   }
 
-  if (FieldType = getClassOverriddenField($element)) {
+  if (FieldType = getDomainOverriddenField($element)) {
     return new FieldType($element)
   }
 

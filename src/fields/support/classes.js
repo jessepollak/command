@@ -1,6 +1,8 @@
-import ContentEditableFacebook from 'fields/ContentEditableFacebook'
+import TextareaUnformatted from 'fields/TextareaUnformatted'
 
-const MAPPING = {}
+const MAPPING = {
+  'uiTextareaNoResize': TextareaUnformatted
+}
 
 export default function getClassOverriddenField($element) {
   let override
