@@ -1,14 +1,13 @@
 import indexBy from 'lodash.indexBy'
 import pluck from 'lodash.pluck'
 
-import * as Giphy from './Giphy/Giphy'
-import * as Help from './Help/Help'
-import * as Selfie from './Selfie/Selfie'
-
-const COMMANDS = {
-  Giphy,
-  Help,
-  Selfie
+let COMMANDS = []
+let requirer = require.context('./', true, /(\.js|\.jsx)$/)
+for (let key of requirer.keys()) {
+  let maybeCommand = requirer(key)
+  if (maybeCommand.match && maybeCommand.mount) {
+    COMMANDS.push(maybeCommand)
+  }
 }
 
 export let MATCHES = pluck(COMMANDS, 'match')
