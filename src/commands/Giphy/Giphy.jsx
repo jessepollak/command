@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
 import NativeListener from 'react-native-listener'
+import { mountReactComponent } from 'commands/mount'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
@@ -185,7 +186,7 @@ class Giphy extends React.Component {
 Giphy.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
-Giphy.match = "giphy"
-Giphy.icon = require('./Giphy.png')
 
-export default Giphy
+export let match = 'giphy'
+export let icon = require('./Giphy.png')
+export let mount = mountReactComponent.bind(null, Giphy)
