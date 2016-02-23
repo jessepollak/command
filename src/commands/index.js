@@ -1,9 +1,9 @@
 import indexBy from 'lodash.indexBy'
 import pluck from 'lodash.pluck'
 
-import Giphy from './Giphy/Giphy'
-import Help from './Help/Help'
-import Selfie from './Selfie/Selfie'
+import * as Giphy from './Giphy/Giphy'
+import * as Help from './Help/Help'
+import * as Selfie from './Selfie/Selfie'
 
 const COMMANDS = {
   Giphy,
