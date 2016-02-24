@@ -13,6 +13,30 @@ import styles from './Selfie.scss'
 import * as Types from 'types'
 import Container from 'components/Container'
 
+Webcam.prototype.componentWillUnmount = function componentWillUnmount() {
+  var index = Webcam.mountedInstances.indexOf(this);
+  Webcam.mountedInstances.splice(index, 1);
+
+  if (Webcam.mountedInstances.length === 0 && this.state.hasUserMedia) {
+    if (this.stream.stop) {
+      this.stream.stop();
+    } else {
+      if (this.stream.getVideoTracks) {
+        for (let track of this.stream.getVideoTracks()) {
+          track.stop()
+        }
+      }
+      if (this.stream.getAudioTracks) {
+        for (let track of this.stream.getAudioTracks()) {
+          track.stop()
+        }
+      }
+    }
+    Webcam.userMediaRequested = false;
+    window.URL.revokeObjectURL(this.state.src);
+  }
+};
+
 const STATES = {
   LOADING: 'loading',
   HAS_PERMISSION: 'has_permission'
