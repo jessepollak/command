@@ -18,11 +18,11 @@ Add the development build of the extension to your browser.
 
 ## Creating a command
 
-Creating a new `command` is easy. It requires creating a new command in the `commands` folder and then importing and including it in `commands/index.js`. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`. 
+Creating a new `command` is easy. It requires creating a new command in the `commands` folder and then importing and including it in `commands/index.js`. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`.
 
 ### Creating the command file
 
-The firs tthing we need to do is create a new command folder. For the new `/google` command we are trying to create, let's add a new folder at `src/commands/Google` and a new file in that folder called `src/commands/Google/Google.js`. Now, let's make that file export the necessary API to implement a command.
+The first thing we need to do is create a new command folder. For the new `/google` command we are trying to create, let's add a new folder at `src/commands/Google` and a new file in that folder called `src/commands/Google/Google.js`. Now, let's make that file export the necessary API to implement a command.
 
 
 ```javascript
