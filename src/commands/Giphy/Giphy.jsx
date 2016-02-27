@@ -13,7 +13,7 @@ import Container from 'components/Container'
 const API_BASE = 'https://api.giphy.com/v1/gifs/search'
 const API_KEY = 'dc6zaTOxFJmzC'
 
-let search(query) => {
+let search = (query) => {
   return $.get(
     API_BASE,
     {
@@ -47,6 +47,7 @@ class Giphy extends React.Component {
     return (
       <Container {...this.props}>
         <Search.Widget
+          placeholder="Search GIFs..."
           onSearch={search}
           onSelect={this.onSelect.bind(this)}
           onEsc={this.props.onDone}

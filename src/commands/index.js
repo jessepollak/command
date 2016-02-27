@@ -1,6 +1,9 @@
 import indexBy from 'lodash.indexBy'
 import pluck from 'lodash.pluck'
 
+// need this import for global spinners to work
+import 'react-spinner/react-spinner.css'
+
 let COMMANDS = []
 let requirer = require.context('./', true, /(\.js|\.jsx)$/)
 for (let key of requirer.keys()) {

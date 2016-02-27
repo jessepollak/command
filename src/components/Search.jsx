@@ -40,7 +40,7 @@ export class Input extends React.Component {
         <input
           type='search'
           name='search'
-          placeholder="Search GIFs..."
+          placeholder={this.props.placeholder}
           className={styles.input}
           onKeyDown={this.onKeyUp}
           onChange={this.onChange}
@@ -161,6 +161,7 @@ export class Widget extends React.Component {
     return (
       <div className={classes}>
         <Input
+          placeholder={this.props.placeholder}
           onSearch={this.search}
           onEsc={this.props.onEsc}
         />
@@ -169,7 +170,11 @@ export class Widget extends React.Component {
     )
   }
 }
+Widget.defaultProps = {
+  placeholder: "Search..."
+}
 Widget.propTypes = {
+  placeholder: React.PropTypes.string,
   onSearch: React.PropTypes.func.isRequired,
   onSelect: React.PropTypes.func.isRequired,
   onEsc: React.PropTypes.func.isRequired,
