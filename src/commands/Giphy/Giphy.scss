@@ -1,22 +1,5 @@
 @import "../../styles/settings";
 
-input[type="text"].input {
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 5px;
-
-  box-shadow: none;
-  border: 1px solid #ccc;
-  transition: border-color 300ms;
-
-  &:focus {
-    border: 1px solid #ddd;
-    outline: none;
-  }
-}
-
 .noResults {
   width: 100%;
   text-align: center;

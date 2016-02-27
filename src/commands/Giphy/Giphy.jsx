@@ -1,16 +1,15 @@
 import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
-import NativeListener from 'react-native-listener'
 import { mountReactComponent } from 'commands/mount'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Giphy.scss'
 import * as Types from 'types'
 import Container from 'components/Container'
+import * as Search from 'components/Search'
 
 const API_BASE = 'https://api.giphy.com/v1/gifs/search'
 const API_KEY = 'dc6zaTOxFJmzC'
@@ -28,52 +27,6 @@ function search(query) {
   })
 }
 
-class Input extends React.Component {
-  constructor() {
-    super()
-    this.onChange = this.onChange.bind(this)
-    this.onKeyUp = this.onKeyUp.bind(this)
-    this.onSearch = _.debounce(this.onSearch.bind(this), 300)
-  }
-
-  componentDidMount() {
-    $(ReactDOM.findDOMNode(this)).focus()
-  }
-
-  onSearch(query) {
-    this.props.onSearch(query)
-  }
-
-  onChange(event) {
-    this.onSearch(event.target.value)
-  }
-
-  onKeyUp(event) {
-    event.stopPropagation()
-    if (event.keyCode == 27) {
-      return this.props.onEsc()
-    }
-  }
-
-  render() {
-    return (
-      <NativeListener onKeyDown={this.onKeyUp}>
-        <input
-          type='text'
-          name='search'
-          placeholder="Search GIFs..."
-          className={styles.input}
-          onKeyDown={this.onKeyUp}
-          onChange={this.onChange}
-        />
-      </NativeListener>
-    )
-  }
-}
-Input.propTypes = {
-  onEsc: React.PropTypes.func.isRequired,
-  onSearch: React.PropTypes.func.isRequired
-}
 
 class Result extends React.Component {
   render() {
@@ -174,7 +127,7 @@ class Giphy extends React.Component {
 
     return (
       <Container isExpanded={isExpanded} className={classnames(classes)} {...this.props}>
-        <Input
+        <Search.Input
           onSearch={this.search}
           onEsc={this.props.onDone}
         />
