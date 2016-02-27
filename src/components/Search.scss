@@ -1,3 +1,16 @@
+@import "../styles/settings";
+
+.widget {
+  height: 70px;
+  transition: height 300ms;
+  &.isExpanded {
+    height: 300px;
+  }
+  &.hasResults .results {
+    opacity: 1;
+  }
+}
+
 input[type="search"].input {
   width: 100%;
   padding: 8px;
@@ -13,4 +26,38 @@ input[type="search"].input {
     border: 1px solid #ddd;
     outline: none;
   }
+}
+
+.results {
+  padding: 5px 0;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 200ms;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 3px;
+}
+
+.result {
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: inline-block;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  &:hover {
+    border-color: $color-red;
+  }
+}
+
+.noResults {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  margin-top: 90px;
+  font-size: 16px;
 }

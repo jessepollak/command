@@ -25,12 +25,10 @@ let Container = (props) => {
     top: props.top,
     left: props.left
   }
-
-  var classes = [styles.container, props.className]
-  if (props.isExpanded) classes.push(styles['container--isExpanded'])
+  let classes = classnames(styles.container, props.className)
 
   return (
-    <div className={classnames(classes)} style={style}>
+    <div className={classes} style={style}>
       { props.children }
       <Icon />
       <Version />
