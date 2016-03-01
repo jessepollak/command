@@ -28,13 +28,20 @@ input[type="search"].input {
   }
 }
 
+.resultsContainer {
+  overflow: hidden;
+  width: 100%;
+}
+
 .results {
   padding: 5px 0;
-  width: 100%;
   height: 210px;
-  overflow: hidden;
   opacity: 0;
-  transition: opacity 200ms;
+  transition: opacity 200ms, left 300ms;
+
+  position: relative;
+  left: 0;
+
   -webkit-column-count: 4;
   -webkit-column-gap: 3px;
 }
@@ -60,4 +67,24 @@ input[type="search"].input {
   color: #ccc;
   margin-top: 90px;
   font-size: 16px;
+}
+
+.pagination {
+  text-align: center;
+}
+.pagination a {
+  cursor: pointer;
+  color: #ccc;
+  margin: 10px;
+  font-size: 30px;
+  -webkit-user-select: none;
+
+  &:hover {
+    color: #aaa;
+  }
+
+  &.disabled {
+    color: #eee;
+    cursor: inherit;
+  }
 }

@@ -4,43 +4,41 @@ import React from 'react'
 import classnames from 'classnames'
 import { mountReactComponent } from 'commands/mount'
 
-import 'react-spinner/react-spinner.css'
-import styles from './Giphy.scss'
+import styles from './Spotify.scss'
 import * as Types from 'types'
 import * as Search from 'components/Search'
 import Container from 'components/Container'
 
-const API_BASE = 'https://api.giphy.com/v1/gifs/search'
-const API_KEY = 'dc6zaTOxFJmzC'
+const API_BASE = 'https://api.spotify.com/v1/search'
 
 let search = (query, options={}) => {
   return $.get(
     API_BASE,
     {
-      api_key: API_KEY,
       q: query,
+      type: 'track',
       limit: 20,
       offset: options.offset
     }
   ).then((data) => {
-    return data.data
+    return data.tracks.items
   })
 }
 
-let GiphyResult = (props) => {
+let SpotifyResult = (props) => {
   return (
-    <img
-      src={props.images.fixed_width_small.url}
-    />
+    <div className={styles.result}>
+      <img src={props.album.images[1].url} />
+      <p className={styles.result__title}>{props.name}</p>
+      <p className={styles.result__artist}>{props.artists[0].name}</p>
+    </div>
   )
 }
 
-class Giphy extends React.Component {
+class Spotify extends React.Component {
   onSelect(result) {
-    this.props.onDone(new Types.Image({
-      src: result.images.original.url,
-      alt: result.slug,
-      url: result.url
+    this.props.onDone(new Types.Link({
+      href: result.external_urls.spotify
     }))
   }
 
@@ -48,20 +46,21 @@ class Giphy extends React.Component {
     return (
       <Container {...this.props}>
         <Search.Widget
-          placeholder="Search GIFs..."
+          placeholder="Search Spotify..."
           onSearch={search}
           onSelect={this.onSelect.bind(this)}
           onEsc={this.props.onDone}
-          ResultClass={GiphyResult}
+          ResultClass={SpotifyResult}
+          columns={2}
         />
       </Container>
     )
   }
 }
-Giphy.propTypes = {
+Spotify.propTypes = {
   onDone: React.PropTypes.func.isRequired
 }
 
-export let match = 'giphy'
-export let icon = require('./Giphy.png')
-export let mount = mountReactComponent.bind(null, Giphy)
+export let match = 'spotify'
+export let icon = require('./Spotify.png')
+export let mount = mountReactComponent.bind(null, Spotify)

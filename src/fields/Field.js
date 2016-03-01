@@ -81,12 +81,18 @@ class Field {
         return this.addImage(type)
       case Types.Redirect:
         return this.addRedirect(type)
+      case Types.Link:
+        return this.addLink(type)
       default:
         throw new Error("Not implemented error")
     }
   }
 
   addImage(image) {
+    throw new Error('Not implemented')
+  }
+
+  addLink(link) {
     throw new Error('Not implemented')
   }
 
