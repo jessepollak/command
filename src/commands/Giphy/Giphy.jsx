@@ -14,13 +14,14 @@ const API_BASE = 'https://api.giphy.com/v1/gifs/search'
 const API_KEY = 'dc6zaTOxFJmzC'
 
 let search = (query, options={}) => {
-  return $.get(
-    API_BASE,
+  return $.ajax(
     {
-      api_key: API_KEY,
-      q: query,
-      limit: 20,
-      offset: options.offset
+      url: API_BASE,
+      data: {
+        api_key: API_KEY,
+        q: query,
+        offset: options.offset
+      }
     }
   ).then((data) => {
     return data.data
@@ -30,7 +31,7 @@ let search = (query, options={}) => {
 let GiphyResult = (props) => {
   return (
     <img
-      src={props.images.fixed_width_small.url}
+      src={props.images.fixed_width.url}
     />
   )
 }

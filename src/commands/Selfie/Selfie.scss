@@ -2,6 +2,7 @@
 
 .container {
   background: black;
+  height: 300px;
   :global {
     .react-spinner {
       z-index: 2;

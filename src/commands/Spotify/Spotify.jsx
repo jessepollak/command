@@ -17,7 +17,6 @@ let search = (query, options={}) => {
     {
       q: query,
       type: 'track',
-      limit: 20,
       offset: options.offset
     }
   ).then((data) => {

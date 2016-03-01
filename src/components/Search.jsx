@@ -103,8 +103,18 @@ class Results extends React.Component {
   }
 
   componentDidUpdate() {
-    let last = ReactDOM.findDOMNode(this.refs.last)
+    if (this.state.atEnd) {
+      // TODO: figure out a more elegant way to handle the situation
+      // where the last child is still laying out when this check
+      // is happening.
+      setTimeout(this.checkForEnd.bind(this), 500)
+    } else {
+      this.checkForEnd()
+    }
+  }
 
+  checkForEnd() {
+    let last = ReactDOM.findDOMNode(this.refs.last)
     if (last) {
       let visibleWindow = this.props.width * (this.props.page + 1)
       let lastOffset = last.offsetLeft
@@ -182,7 +192,9 @@ export class Widget extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.pendingRequest) this.pendingRequest.cancel()
+    if (this.pendingRequest) {
+      this.cancel = true
+    }
   }
 
   onBack() {
@@ -194,9 +206,15 @@ export class Widget extends React.Component {
   }
 
   onReachEnd() {
-    this.pendingRequest = this.props.onSearch(this.state.query, { offset: this.state.results.length })
+    this.doQuery(this.state.query, { append: true, offset: this.state.results.length })
+  }
+
+  doQuery(query, options={}) {
+    this.pendingRequest = this.props.onSearch(query, options)
       .then((results) => {
-        this.setState({ results: this.state.results.concat(results) })
+        if (this.cancel) return
+        results = options.append ? this.state.results.concat(results) : results
+        this.setState({ results: results, IS_LOADING: false })
       })
       .always(() => {
         this.pendingRequest = null
@@ -214,14 +232,7 @@ export class Widget extends React.Component {
     }
 
     this.setState({ query: query, IS_LOADING: true, results: [] })
-
-    this.pendingRequest = this.props.onSearch(query)
-      .then((results) => {
-        this.setState({ results: results, IS_LOADING: false })
-      })
-      .always(() => {
-        this.pendingRequest = null
-      })
+    this.doQuery(query)
   }
 
   onSelect(result) {
