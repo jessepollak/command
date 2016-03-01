@@ -12,14 +12,14 @@ import Container from 'components/Container'
 const API_BASE = 'https://api.spotify.com/v1/search'
 
 let search = (query, options={}) => {
-  return $.get(
-    API_BASE,
-    {
+  return $.ajax({
+    url: API_BASE,
+    data: {
       q: query,
       type: 'track',
       offset: options.offset
     }
-  ).then((data) => {
+  }).then((data) => {
     return data.tracks.items
   })
 }
