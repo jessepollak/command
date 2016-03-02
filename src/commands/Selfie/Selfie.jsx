@@ -96,10 +96,11 @@ class Selfie extends React.Component {
       data: screenshot.replace(/.*base64\,/, ''),
       type: 'base64'
     }).then((data) => {
+      let link = data.link.replace('http:', 'https:')
       this.props.onDone(new Types.Image({
-        src: data.link,
+        src: link,
         alt: 'selfie',
-        url: data.link
+        url: link
       }))
     })
 
