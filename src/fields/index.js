@@ -1,7 +1,7 @@
 import ContentEditable from './ContentEditable'
 import ContentEditableHTML from './ContentEditableHTML'
 import Textarea from './Textarea'
-import TextareaMarkdown from './TextareaMarkdown'
+import TextareaUnformatted from './TextareaUnformatted'
 
 import getDomainOverriddenField from './support/domains'
 import getClassOverriddenField from './support/classes'
@@ -20,7 +20,7 @@ export function getField($element) {
   }
 
   if ($element.is('textarea, input')) {
-    FieldType = TextareaMarkdown
+    FieldType = TextareaUnformatted
   } else {
     FieldType = ContentEditableHTML
   }
