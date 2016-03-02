@@ -8,7 +8,7 @@ import getClassOverriddenField from './support/classes'
 
 export const SELECTOR = 'textarea, div[contenteditable="true"]'
 
-export function getField($element) {
+function getFieldType($element) {
   let FieldType
 
   if (FieldType = getClassOverriddenField($element)) {
@@ -26,4 +26,13 @@ export function getField($element) {
   }
 
   return new FieldType($element)
+}
+export function setup($element) {
+  if ($element.data('___command_setup')) {
+    return
+  }
+
+  let field = new getFieldType($element)
+  field.observe()
+  $element.data('___command_setup', true)
 }

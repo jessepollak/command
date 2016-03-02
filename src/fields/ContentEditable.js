@@ -15,12 +15,15 @@ class ContentEditable extends Field {
     let range = this.range
     let container = range.startContainer
     if (container && container.classList && container.classList.contains("atwho-query")) {
-      range.setStartBefore(container)
-      range.setEndAfter(container)
+      range.selectNode(container)
     } else {
       range.setStart(range.startContainer, range.startOffset - match.length)
     }
     range.deleteContents()
+
+    if (range.startContainer.innerHTML == "") {
+      range.selectNodeContents(range.startContainer.parentNode)
+    }
   }
 
   insertText(text) {

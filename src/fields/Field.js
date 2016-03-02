@@ -20,9 +20,6 @@ class Field {
   observe() {
     this.setupQuickSelect()
     this.$element.on('keyup', this.listen)
-    this.$element.on('blur', (e) => {
-      this.$element.off('keyup', this.listen)
-    })
   }
 
   listen() {
@@ -64,9 +61,7 @@ class Field {
     this.focus()
   }
 
-  removeCommand() {
-    this.$element.atwho('destroy')
-  }
+  removeCommand() {}
 
   mount(Component, match) {
     this.persistSelection()

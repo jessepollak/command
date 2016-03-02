@@ -1,9 +1,12 @@
 import TextareaMarkdown from 'fields/TextareaMarkdown'
 import ContentEditableFacebook from 'fields/ContentEditableFacebook'
+import ContentEditableUnformatted from 'fields/ContentEditableUnformatted'
+import Unsupported from 'fields/Unsupported'
 
 const MAPPING = {
-  'www.facebook.com': ContentEditableFacebook,
-  'github.com': TextareaMarkdown
+  'www.facebook.com': Unsupported,
+  'github.com': TextareaMarkdown,
+  'twitter.com': Unsupported
 }
 
 export default function getDomainOverriddenField($element) {
