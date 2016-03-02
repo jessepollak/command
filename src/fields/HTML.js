@@ -1,10 +1,16 @@
 class HTML {
   addImage(image) {
-    this.appendText(`<img src="${image.src}" alt="${image.alt}" />`)
+    let img = document.createElement('img')
+    img.src = image.src
+    img.alt = image.alt
+    this.insertNode(img)
   }
 
   addLink(link) {
-    this.appendText(`<a href="${link.href}">${link.href}</a>`)
+    let a = document.createElement('a')
+    a.href = link.href
+    a.appendChild(document.createTextNode(link.href))
+    this.insertNode(a)
   }
 }
 

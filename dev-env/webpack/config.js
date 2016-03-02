@@ -192,7 +192,7 @@ function configGenerator(Manifest) {
 
         loaders = loaders.concat([
         {
-          test: /textarea\-helper\/.+\.(jsx|js)$/,
+          test: /jquery\.rangyinputs\.js$/,
           loader: 'imports?jQuery=jquery,$=jquery,this=>window'
         }
         ])

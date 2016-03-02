@@ -1,10 +1,10 @@
 class Markdown {
   addImage(image) {
-    this.appendText(`![${image.alt}](${image.src})`)
+    this.insertText(`![${image.alt}](${image.src})`)
   }
 
   addLink(link) {
-    this.appendText(`[${link.href}](${link.href})`)
+    this.insertText(`[${link.href}](${link.href})`)
   }
 }
 

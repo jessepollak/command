@@ -1,10 +1,10 @@
 class HTML {
   addImage(image) {
-    this.appendText(image.src)
+    this.insertText(image.src)
   }
 
   addLink(link) {
-    this.appendText(link.href)
+    this.insertText(link.href)
   }
 }
 

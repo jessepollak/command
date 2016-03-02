@@ -1,5 +1,8 @@
 import $ from 'jquery'
+import rangy from 'rangy'
+import 'vendor/jquery.rangyinputs'
 import 'vendor/jquery.caret'
+
 import caretToEnd from 'caret-to-end'
 import * as At from 'lib/at'
 import React from 'react'
@@ -17,6 +20,9 @@ class Field {
   observe() {
     this.setupQuickSelect()
     this.$element.on('keyup', this.listen)
+    this.$element.on('reposition.atwho', (e, offset) => {
+      this.offset = offset
+    })
     this.$element.on('blur', (e) => {
       this.$element.off('keup', this.listen)
     })
@@ -45,31 +51,23 @@ class Field {
     throw new Error('Not implemented')
   }
 
-  appendText(text) {
-    this.setText(this.getText() + text)
-  }
-
   getCaretOffset() {
-    return this.$element.caret('offset')
-  }
-
-  focus() {
-    caretToEnd(this.$element[0])
+    return this.offset || this.$element.caret('offset')
   }
 
   onBlur() {
     this.$element.off('keyup', this.listen)
   }
 
+  onDone(result) {
+    this.add(result)
+    this.focus()
+  }
+
   mount(Component, match) {
-      this.replaceText(match, "")
-
-      let onDone = (result) => {
-        this.add(result)
-        this.focus()
-      }
-
-      Component.mount(this, onDone)
+    this.persistSelection()
+    this.removeCommand(match)
+    Component.mount(this, this.onDone.bind(this))
   }
 
 
