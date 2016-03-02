@@ -10,6 +10,7 @@ class Textarea extends Field {
   }
 
   removeCommand(match) {
+    super.removeCommand()
     this.$element.deleteText(this.range.start - match.length, this.range.start, true)
     this.range = this.$element.getSelection()
   }

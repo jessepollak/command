@@ -11,8 +11,15 @@ class ContentEditable extends Field {
   }
 
   removeCommand(match) {
+    super.removeCommand()
     let range = this.range
-    range.setStart(range.startContainer, range.startOffset - match.length)
+    let container = range.startContainer
+    if (container && container.classList && container.classList.contains("atwho-query")) {
+      range.setStartBefore(container)
+      range.setEndAfter(container)
+    } else {
+      range.setStart(range.startContainer, range.startOffset - match.length)
+    }
     range.deleteContents()
   }
 

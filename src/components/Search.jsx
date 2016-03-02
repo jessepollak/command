@@ -11,7 +11,7 @@ export class Input extends React.Component {
   constructor() {
     super()
     this.onChange = this.onChange.bind(this)
-    this.onKeyUp = this.onKeyUp.bind(this)
+    this.onKeyDown = this.onKeyDown.bind(this)
     this.onSearch = _.debounce(this.onSearch.bind(this), 300)
   }
 
@@ -27,22 +27,32 @@ export class Input extends React.Component {
     this.onSearch(event.target.value)
   }
 
-  onKeyUp(event) {
+  onKeyDown(event) {
     event.stopPropagation()
     if (event.keyCode == 27) {
       return this.props.onEsc()
     }
+    return true
+  }
+
+  onKeyUp(event) {
+    event.stopPropagation()
+    return true
+  }
+
+  onKeyPress(event) {
+    event.stopPropagation()
+    return true
   }
 
   render() {
     return (
-      <NativeListener onKeyDown={this.onKeyUp}>
+      <NativeListener onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} onKeyPress={this.onKeyPress}>
         <input
           type='search'
           name='search'
           placeholder={this.props.placeholder}
           className={styles.input}
-          onKeyDown={this.onKeyUp}
           onChange={this.onChange}
         />
       </NativeListener>

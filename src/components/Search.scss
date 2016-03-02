@@ -17,6 +17,7 @@ input[type="search"].input {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 5px;
+  box-sizing: border-box;
 
   box-shadow: none;
   border: 1px solid #ccc;
@@ -78,6 +79,7 @@ input[type="search"].input {
   margin: 10px;
   font-size: 30px;
   -webkit-user-select: none;
+  text-decoration: none;
 
   &:hover {
     color: #aaa;
