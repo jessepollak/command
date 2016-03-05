@@ -81,7 +81,7 @@ class Field {
       case Types.Link:
         return this.addLink(type)
       default:
-        throw new Error("Not implemented error")
+        return this.insertText(type)
     }
   }
 
