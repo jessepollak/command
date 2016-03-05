@@ -1,0 +1,60 @@
+.emoji {
+  height: 290px;
+}
+.emojiContainer {
+  overflow: scroll;
+  height: 165px;
+  padding: 10px 0;
+  text-align: center;
+  border-top: none;
+  text-align: left;
+}
+.emojiItem {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  line-height: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    background: #eee;
+  }
+}
+.emojiCategoriesHeader {
+}
+.emojiCategoriesHeaderItem {
+  padding: 5px 15px;
+  width: 47.5px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #eee;
+
+  &:not(:last-child) {
+    border-right: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    img {
+      opacity: .7;
+    }
+  }
+
+  img {
+    vertical-align: middle;
+    opacity: .5;
+    height: 16px;
+  }
+
+  &.isActive {
+    background: #eee;
+    img {
+      opacity: 1;
+    }
+  }
+}
+.noSupport {
+  text-align: center;
+  color: #aaa;
+}
