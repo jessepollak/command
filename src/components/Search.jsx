@@ -184,11 +184,11 @@ let NoResults = (props) => {
 }
 
 export class Widget extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      results: [],
+      results: props.results || [],
       IS_LOADING: false,
       query: "",
       page: 0
@@ -251,8 +251,9 @@ export class Widget extends React.Component {
 
   render() {
     let classes = classnames(styles.widget, this.props.className, {
-      [styles.isExpanded]: this.state.query != "",
-      [styles.hasResults]: this.state.results.length > 0
+      [styles.isExpanded]: this.state.query != "" || this.props.isExpanded,
+      [styles.hasResults]: this.state.results.length > 0,
+      [styles.hasColumns]: this.props.columns
     })
 
     let toRender
@@ -288,9 +289,15 @@ export class Widget extends React.Component {
   }
 }
 Widget.defaultProps = {
-  placeholder: "Search..."
+  placeholder: "Search...",
+  columns: 4
 }
 Widget.propTypes = {
+  results: React.PropTypes.array,
+  columns: React.PropTypes.oneOfType([
+      React.PropTypes.bool.isRequired,
+      React.PropTypes.number.isRequired
+  ]),
   placeholder: React.PropTypes.string,
   onSearch: React.PropTypes.func.isRequired,
   onSelect: React.PropTypes.func.isRequired,

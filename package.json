@@ -1,6 +1,6 @@
 {
   "name": "Command",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Making the web better with Slack-like slash commands.",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
   "dependencies": {
     "caret-to-end": "^1.0.0",
     "classnames": "^2.2.3",
+    "emojilib": "^2.0.2",
     "jquery": "^2.2.0",
     "lodash": "^4.3.0",
     "lodash.indexby": "^3.1.1",
