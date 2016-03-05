@@ -201,7 +201,6 @@ function configGenerator(Manifest) {
         loaders = loaders.concat([
           {
             test: /\.json/,
-            exclude: /node_modules/,
             loader: "json-loader"
           }
         ])
