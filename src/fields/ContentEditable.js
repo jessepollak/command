@@ -37,9 +37,15 @@ class ContentEditable extends Field {
     this.range.select()
   }
 
+  blur() {
+    this.$element.blur()
+  }
+
   insertNode(node) {
     this.range.insertNode(node)
     this.range.setEndAfter(node)
+    this.focus()
+    this.blur()
   }
 
   replaceText(find, replace) {

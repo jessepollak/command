@@ -1,9 +1,9 @@
 class HTML {
-  addImage(image) {
+  insertImage(image) {
     this.insertText(image.src)
   }
 
-  addLink(link) {
+  insertLink(link) {
     this.insertText(link.href)
   }
 }

@@ -12,7 +12,7 @@ function getContainer() {
   return $container[0]
 }
 
-export function mountReactComponent(Component, field, onDone) {
+export function mountReactComponent(Component, field, onDone, onInsert) {
   let caretOffset = field.getCaretOffset()
   let container = getContainer()
   let _onDone = (result) => {
@@ -25,6 +25,7 @@ export function mountReactComponent(Component, field, onDone) {
       field={field}
       top={caretOffset.top}
       left={caretOffset.left}
+      onInsert={onInsert}
       onDone={_onDone}
     />,
     getContainer()

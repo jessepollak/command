@@ -77,10 +77,16 @@ let EmojiCategoriesHeader = (props) => {
 }
 
 let EmojiContainer = (props) => {
+
+  let onSelect = (item, e) => {
+    let options = { doNotClose: e.shiftKey }
+    props.onSelect(item, options)
+  }
+
   let items = _.map(props.items, (v) => {
     return (
       <EmojiItem
-        onClick={props.onSelect.bind(null, v)}
+        onClick={onSelect.bind(null, v)}
         key={v.id}
         {...v}
       />
@@ -151,8 +157,12 @@ class Emoji extends React.Component {
     this.onSearch = this.onSearch.bind(this)
   }
 
-  onSelect(result) {
-    this.props.onDone(result.char)
+  onSelect(result, options={}) {
+    if (options.doNotClose) {
+      this.props.onInsert(result.char)
+    } else {
+      this.props.onDone(result.char)
+    }
   }
 
   onSearch(query) {
@@ -173,6 +183,7 @@ class Emoji extends React.Component {
 
     return (
       <Container className={styles.emoji} {...this.props}>
+        <p className={styles.tip}>Pro tip: shift-click to insert more than one emoji.</p>
         <Search.Input onEsc={this.props.onDone} onSearch={this.onSearch}/>
         { render }
       </Container>
@@ -183,7 +194,8 @@ Emoji.defaultProps = {
   doesSupportEmoji: doesSupportEmoji()
 }
 Emoji.propTypes = {
-  onDone: React.PropTypes.func.isRequired
+  onDone: React.PropTypes.func.isRequired,
+  onInsert: React.PropTypes.func.isRequired
 }
 
 export let match = 'emoji'

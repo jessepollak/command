@@ -1,9 +1,9 @@
 class Markdown {
-  addImage(image) {
+  insertImage(image) {
     this.insertText(`![${image.alt}](${image.src})`)
   }
 
-  addLink(link) {
+  insertLink(link) {
     this.insertText(`[${link.href}](${link.href})`)
   }
 }

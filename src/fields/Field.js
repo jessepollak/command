@@ -57,7 +57,9 @@ class Field {
   }
 
   onDone(result) {
-    this.add(result)
+    if (result) {
+      this.insert(result)
+    }
     this.focus()
   }
 
@@ -66,34 +68,34 @@ class Field {
   mount(Component, match) {
     this.persistSelection()
     this.removeCommand(match)
-    Component.mount(this, this.onDone.bind(this))
+    Component.mount(this, this.onDone.bind(this), this.insert.bind(this))
   }
 
 
-  add(type) {
+  insert(type) {
     if (!type) return
 
     switch (type.constructor) {
       case Types.Image:
-        return this.addImage(type)
+        return this.insertImage(type)
       case Types.Redirect:
-        return this.addRedirect(type)
+        return this.insertRedirect(type)
       case Types.Link:
-        return this.addLink(type)
+        return this.insertLink(type)
       default:
         return this.insertText(type)
     }
   }
 
-  addImage(image) {
+  insertImage(image) {
     throw new Error('Not implemented')
   }
 
-  addLink(link) {
+  insertLink(link) {
     throw new Error('Not implemented')
   }
 
-  addRedirect(redirect) {
+  insertRedirect(redirect) {
     window.open(redirect.url, redirect.target)
   }
 }

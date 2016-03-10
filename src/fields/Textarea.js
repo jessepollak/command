@@ -17,6 +17,8 @@ class Textarea extends Field {
 
   insertText(text) {
     this.$element.insertText(text, this.range.start, "collapseToEnd")
+    this.range = this.$element.getSelection()
+    this.$element.blur()
   }
 
   focus() {
