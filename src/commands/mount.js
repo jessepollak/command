@@ -27,7 +27,8 @@ export function mountReactComponent(Component, field, onDone, onInsert) {
       left={caretOffset.left}
       onInsert={onInsert}
       onDone={_onDone}
+      container={container}
     />,
-    getContainer()
+    container
   )
 }

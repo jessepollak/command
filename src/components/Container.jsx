@@ -1,5 +1,8 @@
+import $ from 'jquery'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import classnames from 'classnames'
+import NativeListener from 'react-native-listener'
 
 import * as Extension from 'lib/extension'
 import styles from './Container.scss'
@@ -20,20 +23,41 @@ let Version = (props) => {
     )
 }
 
-let Container = (props) => {
-  let style = {
-    top: props.top,
-    left: props.left
+class Container extends React.Component {
+  constructor(props) {
+    super(props)
+    this.unmountOnClickOutside = this.unmountOnClickOutside.bind(this)
   }
-  let classes = classnames(styles.container, props.className)
 
-  return (
-    <div className={classes} style={style}>
-      { props.children }
-      <Icon />
-      <Version />
-    </div>
-  )
+  componentWillMount() {
+    $('html').on('click', this.unmountOnClickOutside)
+  }
+
+  componentWillUnmount() {
+    $('html').off('click', this.unmountOnClickOutside)
+  }
+
+  unmountOnClickOutside(evt) {
+    if (!this.props.container.contains(evt.target)) {
+      ReactDOM.unmountComponentAtNode(this.props.container)
+    }
+  }
+
+  render() {
+    let style = {
+      top: this.props.top,
+      left: this.props.left
+    }
+    let classes = classnames(styles.container, this.props.className)
+
+    return (
+      <div className={classes} style={style} >
+        { this.props.children }
+        <Icon />
+        <Version />
+      </div>
+    )
+  }
 }
 Container.propTypes = {
   top: React.PropTypes.number.isRequired,
