@@ -23,10 +23,17 @@ let Version = (props) => {
     )
 }
 
+let Close = (props) => {
+  return (
+    <a className={styles.close} onClick={props.onClick}>dismiss</a>
+  )
+}
+
 class Container extends React.Component {
   constructor(props) {
     super(props)
     this.unmountOnClickOutside = this.unmountOnClickOutside.bind(this)
+    this.unmount = this.unmount.bind(this)
   }
 
   componentWillMount() {
@@ -39,8 +46,12 @@ class Container extends React.Component {
 
   unmountOnClickOutside(evt) {
     if (!this.props.container.contains(evt.target)) {
-      ReactDOM.unmountComponentAtNode(this.props.container)
+      this.unmount()
     }
+  }
+
+  unmount() {
+    ReactDOM.unmountComponentAtNode(this.props.container)
   }
 
   render() {
@@ -51,10 +62,13 @@ class Container extends React.Component {
     let classes = classnames(styles.container, this.props.className)
 
     return (
-      <div className={classes} style={style} >
-        { this.props.children }
-        <Icon />
-        <Version />
+      <div className={styles.wrapper} style={style} >
+        <Close onClick={this.unmount}/>
+        <div className={classes}>
+          { this.props.children }
+          <Icon />
+          <Version />
+        </div>
       </div>
     )
   }
