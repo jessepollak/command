@@ -14,7 +14,7 @@ class Unsupported extends Field {
       displayTimeout: 0
     })
     this.$element.on('inserted.atwho', () => {
-      window.open('https://github.com/jessepollak/command/issues/20', '_blank')
+      window.open("https://github.com/jessepollak/command/wiki/Why-isn't-command-supported-on-_______-website%3F", '_blank')
     })
   }
 }
