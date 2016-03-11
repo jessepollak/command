@@ -4,6 +4,7 @@ import ContentEditableUnformatted from 'fields/ContentEditableUnformatted'
 import Unsupported from 'fields/Unsupported'
 
 const MAPPING = {
+  'www.messenger.com': Unsupported,
   'www.facebook.com': Unsupported,
   'github.com': TextareaMarkdown,
   'twitter.com': Unsupported
