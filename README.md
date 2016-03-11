@@ -18,9 +18,11 @@ Now, would you like to give it a try?
 
 ## Current commands
 
-* */giphy* - easily search and add a GIF to your text
-* */selfie* - quickly take and embed a selfie from your webcam
+* */emoji* - add emoji
+* */giphy* - search and add a GIF
 * */help* - learn how to use Command
+* */selfie* - take and embed a selfie from your webcam
+* */spotify* - search and share songs from spotify
 
 ## Contributing
 
