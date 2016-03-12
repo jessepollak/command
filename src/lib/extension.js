@@ -1,3 +1,8 @@
+export function isExtension() {
+  return !!(window.chrome && window.chrome.runtime && window.chrome.runtime.getManifest)
+}
 export function getVersion() {
-  return chrome.runtime.getManifest().version
+  if (isExtension()) {
+    return chrome.runtime.getManifest().version
+  }
 }
