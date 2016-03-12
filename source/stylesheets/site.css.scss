@@ -38,16 +38,41 @@ h1, h2, h3, h4, h5, h6, p {
 .header__logo {
   width: 50px;
 }
-.header__gif {
-  border-radius: 5px;
-  width: 500px;
-  max-width: 90%;
+.header__demo {
+  margin-bottom: 20px;
 }
+.header__demoExplain {
+  font-style: italic;
+  background: #fff;
+  color: #aaa;
+  width: 500px;
+  margin: auto;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+.header__demoEditor {
+  width: 500px;
+  height: 200px;
+  margin: auto;
+  background: white;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #333;
+  text-align: left;
+  &:focus {
+    outline: none;
+  }
+}
+
 .header__social {
   margin-top: 10px;
 }
 .header__supports {
-  margin-top: 20px;
+  width: 500px;
+  margin: auto;
 }
 
 .command {
