@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "NODE_ENV=development ./node_modules/.bin/babel-node ./dev-env/dev.js",
-    "build": "NODE_ENV=production ./node_modules/.bin/babel-node ./dev-env/build.js"
+    "build": "NODE_ENV=production ./node_modules/.bin/babel-node ./dev-env/build.js",
+    "release": "NODE_ENV=production ./dev-env/release"
   },
   "keywords": [],
   "jshintConfig": {
@@ -40,17 +41,22 @@
     "chokidar": "1.4.2",
     "cli-color": "1.1.0",
     "css-loader": "0.23.1",
+    "dotenv": "^2.0.0",
     "express": "4.13.4",
     "file-loader": "0.8.5",
     "fs-extra": "0.26.5",
+    "git-rev": "^0.2.1",
     "imports-loader": "^0.6.5",
     "jshint-jsx": "^0.4.1",
     "json-loader": "0.5.4",
     "node-sass": "^3.4.2",
+    "publish-release": "^1.2.0",
     "sass-loader": "^3.1.2",
+    "shelljs": "^0.6.0",
     "style-loader": "0.13.0",
     "url-loader": "0.5.7",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^1.12.1",
+    "yargs": "^4.2.0"
   }
 }

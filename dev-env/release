@@ -1,0 +1,46 @@
+#!/bin/bash
+set -e
+export $(cat .env | xargs)
+
+if [ $# -eq 0 ]
+then
+    echo "Please provide a release type."
+    exit 1
+fi
+
+release_type=$1
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$branch" != "master" ]
+then
+    echo "Will not release from a branch other than master"
+    exit 1
+fi
+
+echo "Creating a new version..."
+npm version $release_type
+echo "Pushing new version and master to origin..."
+git push origin master
+git push --tags
+echo "Building extension..."
+npm run build
+echo "Creating a new release..."
+tag=$(git describe)
+./node_modules/publish-release/bin/publish-release --token $GITHUB_TOKEN \
+    --owner jessepollak \
+    --repo command \
+    --tag $tag \
+    --name $tag \
+echo "Release published!"
+
+echo "Adding latest build to Github pages"
+
+cp "$(pwd)/release/build/content/index.js" /tmp/
+git checkout gh-pages
+cp /tmp/index.js ./source/javascripts/
+git add ./source/javascripts/index.js
+git commit -m "add release JS for $tag"
+rake publish
+git checkout master
+
+echo "Finished!"
