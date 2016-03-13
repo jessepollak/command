@@ -2,14 +2,14 @@ import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
 import classnames from 'classnames'
-import { mountReactComponent } from 'commands/mount'
+import { mountReactComponent } from 'content/commands/mount'
 import * as Emojilib from 'emojilib'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Emoji.scss'
-import * as Types from 'types'
-import * as Search from 'components/Search'
-import Container from 'components/Container'
+import * as Types from 'content/types'
+import * as Search from 'content/components/Search'
+import Container from 'content/components/Container'
 
 // set IDs for keys
 _.map(Emojilib.lib, (v, k) => {

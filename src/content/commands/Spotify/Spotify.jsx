@@ -2,12 +2,12 @@ import _ from 'lodash'
 import $ from 'jquery'
 import React from 'react'
 import classnames from 'classnames'
-import { mountReactComponent } from 'commands/mount'
+import { mountReactComponent } from 'content/commands/mount'
 
 import styles from './Spotify.scss'
-import * as Types from 'types'
-import * as Search from 'components/Search'
-import Container from 'components/Container'
+import * as Types from 'content/types'
+import * as Search from 'content/components/Search'
+import Container from 'content/components/Container'
 
 const API_BASE = 'https://api.spotify.com/v1/search'
 

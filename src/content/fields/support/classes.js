@@ -1,4 +1,4 @@
-import TextareaUnformatted from 'fields/TextareaUnformatted'
+import TextareaUnformatted from 'content/fields/TextareaUnformatted'
 
 const MAPPING = {
   'uiTextareaNoResize': TextareaUnformatted

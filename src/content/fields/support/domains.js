@@ -1,7 +1,7 @@
-import TextareaMarkdown from 'fields/TextareaMarkdown'
-import ContentEditableFacebook from 'fields/ContentEditableFacebook'
-import ContentEditableUnformatted from 'fields/ContentEditableUnformatted'
-import Unsupported from 'fields/Unsupported'
+import TextareaMarkdown from 'content/fields/TextareaMarkdown'
+import ContentEditableFacebook from 'content/fields/ContentEditableFacebook'
+import ContentEditableUnformatted from 'content/fields/ContentEditableUnformatted'
+import Unsupported from 'content/fields/Unsupported'
 
 const MAPPING = {
   'www.messenger.com': Unsupported,

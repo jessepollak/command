@@ -1,14 +1,15 @@
 import $ from 'jquery'
 import rangy from 'rangy'
-import 'vendor/jquery.rangyinputs'
-import 'vendor/jquery.caret'
+import 'content/vendor/jquery.rangyinputs'
+import 'content/vendor/jquery.caret'
 
 import caretToEnd from 'caret-to-end'
-import * as At from 'lib/at'
+import * as At from 'content/lib/at'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import * as Types from 'types'
-import * as Commands from 'commands'
+import * as Types from 'content/types'
+import * as Commands from 'content/commands'
+import * as Analytics from 'content/lib/analytics'
 
 class Field {
 
@@ -69,6 +70,7 @@ class Field {
     this.persistSelection()
     this.removeCommand(match)
     Component.mount(this, this.onDone.bind(this), this.insert.bind(this))
+    Analytics.sendEvent('command', 'mount', Component.match)
   }
 
 

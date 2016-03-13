@@ -70,10 +70,10 @@ function configGenerator(Manifest) {
         new ManifestPlugin(Manifest),
         new webpack.DefinePlugin({
           "global.GENTLY": false,
-          "process.env": {
+          "process.env": _.defaults({
             NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production'),
             IS_BROWSER: true
-          }
+          }, process.env)
         })
       ];
 
@@ -194,6 +194,13 @@ function configGenerator(Manifest) {
         {
           test: /jquery\.rangyinputs\.js$/,
           loader: 'imports?jQuery=jquery,$=jquery,this=>window'
+        }
+        ])
+
+        loaders = loaders.concat([
+        {
+          test: /google\-analytics\-bundle\.js$/,
+          loader: 'imports?this=>window'
         }
         ])
 

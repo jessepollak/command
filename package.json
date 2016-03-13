@@ -28,7 +28,8 @@
     "react-native-listener": "^1.0.1",
     "react-spinner": "^0.2.3",
     "react-webcam": "0.0.10",
-    "redux": "^3.3.1"
+    "redux": "^3.3.1",
+    "universal-analytics": "^0.3.10"
   },
   "devDependencies": {
     "archiver": "^0.21.0",
