@@ -45,13 +45,15 @@ h1, h2, h3, h4, h5, h6, p {
   font-style: italic;
   background: #fff;
   color: #aaa;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   margin: auto;
   padding: 5px 0;
   border-bottom: 1px solid #eee;
 }
 .header__demoEditor {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   min-height: 200px;
   margin: auto;
   background: white;
@@ -71,7 +73,8 @@ h1, h2, h3, h4, h5, h6, p {
   margin-top: 10px;
 }
 .header__supports {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   margin: auto;
 }
 
