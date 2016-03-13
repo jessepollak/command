@@ -805,6 +805,10 @@ EditableController = (function(superClass) {
   };
 
   EditableController.prototype.rect = function() {
+    if (this.query.el.length == 0) {
+      return
+    }
+
     var $iframe, iframeOffset, rect;
     rect = this.query.el.offset();
     if (this.app.iframe && !this.app.iframeAsRoot) {
@@ -824,7 +828,7 @@ EditableController = (function(superClass) {
     if (range = this._getRange()) {
       range.setEndAfter(this.query.el[0]);
       range.collapse(false);
-      range.insertNode(suffixNode = this.app.document.createTextNode("\u200D" + suffix));
+      range.insertNode(suffixNode = this.app.document.createTextNode(suffix));
       this._setRange('after', suffixNode, range);
     }
     if (!this.$inputor.is(':focus')) {

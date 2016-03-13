@@ -8,6 +8,8 @@ export function setup($element) {
     at: "/",
     data: Commands.getAtData(),
     displayTpl: "<li>${name}<img src='${icon}' /></li>",
-    displayTimeout: 0
+    insertTpl: "/${name}",
+    displayTimeout: 300,
+    suffix: ""
   })
 }

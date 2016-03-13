@@ -20,10 +20,10 @@ class Field {
 
   observe() {
     this.setupQuickSelect()
-    this.$element.on('keyup', this.listen)
+    this.$element.on('keyup inserted.atwho', this.listen)
   }
 
-  listen() {
+  listen(e) {
     let { command, match } = Commands.match(this.getText())
     if (command) {
       this.mount(command, match)
@@ -64,7 +64,9 @@ class Field {
     this.focus()
   }
 
-  removeCommand() {}
+  removeCommand() {
+    this.$element.atwho('hide')
+  }
 
   mount(Component, match) {
     this.persistSelection()

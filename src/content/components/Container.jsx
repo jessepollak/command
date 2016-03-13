@@ -37,8 +37,14 @@ class Container extends React.Component {
     this.unmount = this.unmount.bind(this)
   }
 
-  componentWillMount() {
-    $('html').on('click', this.unmountOnClickOutside)
+  componentDidMount() {
+    // we add this event listener in a callback because
+    // without the jump to the back of the event loop, this
+    // listener picks up the "click" event when a user clicks
+    // the at.js dropdown to select a command
+    setTimeout(() => {
+      $('html').on('click', this.unmountOnClickOutside)
+    }, 0)
   }
 
   componentWillUnmount() {

@@ -3,27 +3,33 @@ import Field from './Field'
 
 class ContentEditable extends Field {
   getText() {
-    return this.$element[0].innerHTML
+    return this.$element[0].textContent
   }
 
   persistSelection() {
-    this.range = rangy.getSelection().getRangeAt(0)
+    let selection = rangy.getSelection()
+    if (selection.rangeCount > 0) {
+      this.range = rangy.getSelection().getRangeAt(0)
+    } else {
+      let range = rangy.createRange()
+      range.selectNodeContents(this.$element.get(0))
+      range.collapse(false)
+      this.range = range
+    }
   }
 
   removeCommand(match) {
     super.removeCommand()
-    let range = this.range
-    let container = range.startContainer
-    if (container && container.classList && container.classList.contains("atwho-query")) {
-      range.selectNode(container)
-    } else {
-      range.setStart(range.startContainer, range.startOffset - match.length)
-    }
-    range.deleteContents()
 
-    if (range.startContainer.innerHTML == "") {
-      range.selectNodeContents(range.startContainer.parentNode)
-    }
+    let range = this.range
+    let container = range.startContainer.closest ? range.startContainer : range.startContainer.parentElement
+    let query = container.closest('.atwho-query') ||
+              container.querySelector('.atwho-query') ||
+              container.querySelector('.atwho-inserted') ||
+              container.querySelector('.atwho-inserted')
+
+    range.selectNode(query)
+    range.deleteContents()
   }
 
   insertText(text) {
