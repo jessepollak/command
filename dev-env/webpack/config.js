@@ -72,7 +72,8 @@ function configGenerator(Manifest) {
           "global.GENTLY": false,
           "process.env": {
             NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production'),
-            IS_BROWSER: true
+            IS_BROWSER: true,
+            ENABLE_ANALYTICS: process.env.ENABLE_ANALYTICS
           }
         })
       ];
@@ -194,6 +195,13 @@ function configGenerator(Manifest) {
         {
           test: /jquery\.rangyinputs\.js$/,
           loader: 'imports?jQuery=jquery,$=jquery,this=>window'
+        }
+        ])
+
+        loaders = loaders.concat([
+        {
+          test: /google\-analytics\-bundle\.js$/,
+          loader: 'imports?this=>window'
         }
         ])
 

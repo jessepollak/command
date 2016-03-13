@@ -1,10 +1,9 @@
 import Field from './Field'
-import * as At from 'lib/at'
+import * as At from 'content/lib/at'
 
 class Unsupported extends Field {
 
   observe() {
-    console.log('atwho')
     this.$element.atwho({
       at: "/",
       data: [

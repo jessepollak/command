@@ -1,7 +1,7 @@
 import $ from 'jquery'
-import 'vendor/jquery.atwho.js'
-import 'vendor/jquery.atwho.scss'
-import * as Commands from 'commands'
+import 'content/vendor/jquery.atwho.js'
+import 'content/vendor/jquery.atwho.scss'
+import * as Commands from 'content/commands'
 
 export function setup($element) {
   $element.atwho({

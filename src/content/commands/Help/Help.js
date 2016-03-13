@@ -1,4 +1,4 @@
-import { Redirect } from 'types'
+import { Redirect } from 'content/types'
 
 export let mount = (field, onDone) => {
   onDone(new Redirect({

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import classnames from 'classnames'
 import NativeListener from 'react-native-listener'
 
-import * as Extension from 'lib/extension'
+import * as Extension from 'content/lib/extension'
 import styles from './Container.scss'
 
 let Icon = (props) => {

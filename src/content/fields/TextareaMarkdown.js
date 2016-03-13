@@ -1,4 +1,4 @@
-import mixin from 'lib/mixin'
+import mixin from 'content/lib/mixin'
 import Textarea from './Textarea'
 import Markdown from './Markdown'
 

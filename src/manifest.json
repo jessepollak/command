@@ -16,7 +16,8 @@
     "webRequest",
     "webRequestBlocking",
     "background",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "icons": {
     "16": "icons/command-16.png",
@@ -26,5 +27,5 @@
   "web_accessible_resources": [
     "icons/*"
   ],
-  "content_security_policy": "media-src 'self';"
+  "content_security_policy": "script-src 'self'; media-src 'self';"
 }

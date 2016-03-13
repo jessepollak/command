@@ -1,4 +1,4 @@
-import mixin from 'lib/mixin'
+import mixin from 'content/lib/mixin'
 import ContentEditable from './ContentEditable'
 import Unformatted from './Unformatted'
 

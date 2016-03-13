@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom'
 import Spinner from 'react-spinner'
 import classnames from 'classnames'
 import Webcam from 'react-webcam'
-import Imgur from 'lib/imgur'
-import { mountReactComponent } from 'commands/mount'
+import Imgur from 'content/lib/imgur'
+import { mountReactComponent } from 'content/commands/mount'
 
 import 'react-spinner/react-spinner.css'
 import styles from './Selfie.scss'
-import * as Types from 'types'
-import Container from 'components/Container'
+import * as Types from 'content/types'
+import Container from 'content/components/Container'
 
 Webcam.prototype.componentWillUnmount = function componentWillUnmount() {
   var index = Webcam.mountedInstances.indexOf(this);
