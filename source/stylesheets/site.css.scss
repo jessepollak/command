@@ -97,12 +97,17 @@ h1, h2, h3, h4, h5, h6, p {
   max-width: 90%;
   border-radius: 3px;
   margin: 20px auto;
+  background: #fff;
+  padding: 10px 5px;
 }
 .command--green {
   background: $color-green;
 }
 .command--blue {
   background: $color-blue;
+}
+.command--red {
+  background: $color-red;
 }
 .footer {
   background: $color-red;
