@@ -3,3 +3,4 @@ build/
 release/
 npm-debug.log
 .env
+assets
