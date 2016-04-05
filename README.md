@@ -1,6 +1,6 @@
-# Command
+# Command ([website](http://slashcommand.club))
 
-Making the web better with Slack-like slash commands.
+Making the web better with Slack-like slash commands. Check out [slashcommand.club](http://slashcommand.club) for more examples and quick installation.
 
 ![command](resources/command.gif?v=2)
 
