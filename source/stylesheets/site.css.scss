@@ -199,13 +199,16 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
-.unsupported-show {
+.unsupported-show,
+.mobile-show {
   display: none;
 }
-.unsupported .unsupported-show {
+.unsupported .unsupported-show,
+.mobile .mobile-show{
   display: block;
 }
-.unsupported .unsupported-hide {
+.unsupported .unsupported-hide,
+.mobile .mobile-hide {
   display: none;
 }
 
