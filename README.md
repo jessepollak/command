@@ -2,7 +2,7 @@
 
 Making the web better with Slack-like slash commands.
 
-![command](resources/command.gif)
+![command](resources/command.gif?v=2)
 
 ## Usage
 
