@@ -18,12 +18,11 @@ Add the development build of the extension to your browser.
 
 ## Creating a command
 
-Creating a new `command` is easy. It requires creating a new command in the `commands` folder and then importing and including it in `commands/index.js`. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`.
+Creating a new `command` is easy. It requires creating a new command in the `commands` folder. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`.
 
 ### Creating the command file
 
 The first thing we need to do is create a new command folder. For the new `/google` command we are trying to create, let's add a new folder at `src/commands/Google` and a new file in that folder called `src/commands/Google/Google.js`. Now, let's make that file export the necessary API to implement a command.
-
 
 ```javascript
 // src/commands/Google/Google.js
@@ -47,5 +46,9 @@ Now that we have our file created, let's walk through what exactly we've exporte
 * `mount` - this is a function which will be called when the command is selected. It is called with two arguments:
     * `field` - this is a reference to a `Field` object where the user actually typed the command. For the most part, you won't need to do anything with this: we've created a bunch of easy return `types` that will let you accomplish almost anything without touching the field in question.
     * `onDone` - this is the callback the command should call when it's done completing its desired action. This `onDone` function can be optionally called with a `type` object that declares a generic result that should either be applied to the field or happen in the browser. To learn more about the different types available, check out the source at [src/types/](src/types).
+    * `onInsert` - this is a callback that can be used to insert before we call `onDone`. Like `onDone`, this should be called with a `type` object that declares a generic result to be applied to the field or happen in the browser. To learn more about the different types available, check out the source at [src/types/](src/types).
 
+### Enabling the command
+
+Once you've created the folder and exported the required exports, there's nothing else to do! The command should now automatically be loaded into your browser.
 

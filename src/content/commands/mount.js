@@ -12,6 +12,21 @@ function getContainer() {
   return $container[0]
 }
 
+/**
+ * mountReactComponent
+ *
+ * This function is a helper that makes it easy to mount a
+ * command that displays a React component.
+ *
+ * @param {React.Component} Component - the React component to mount
+ * @param {Field} field - the field to mount on
+ * @param {function} onDone - completed callback
+ * @param {fucntion} onInsert - a callback to insert Types to the Field
+ *
+ * Usage:
+ *
+ * export let mount = mountReactComponent.bind(null, Component)
+ */
 export function mountReactComponent(Component, field, onDone, onInsert) {
   let caretOffset = field.getCaretOffset()
   let container = getContainer()
