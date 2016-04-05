@@ -1,5 +1,7 @@
 # Contributing
 
+Welcome! We're so excited to have you, no matter who you are. To make sure we're creating a safe space for everyone, please check out our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Getting setup
 
 Install the necessary node modules and start the development server.
