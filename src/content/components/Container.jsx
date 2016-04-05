@@ -19,7 +19,7 @@ let Version = (props) => {
     if (!Extension.isExtension()) return <span />
     return (
       <a className={styles.version} href="https://github.com/jessepollak/command/releases" target="_blank">
-      Private beta v{ Extension.getVersion() }
+      v{ Extension.getVersion() }
       </a>
     )
 }
