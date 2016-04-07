@@ -8,7 +8,7 @@ Check out [slashcommand.club](http://slashcommand.club) for more a demo, example
 
 ## Usage
 
-1. Install the Command extension [here](https://chrome.google.com/webstore/detail/slash/dkblejpmbmienbjpinbgebodokhpbkme)
+1. Install the Command extension [here](https://chrome.google.com/webstore/detail/command/dkblejpmbmienbjpinbgebodokhpbkme)
 2. Type a slash command like `/giphy` in any text field
 3. Win!
 
