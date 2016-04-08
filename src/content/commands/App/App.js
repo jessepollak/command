@@ -13,8 +13,6 @@ const API_BASE = 'https://itunes.apple.com/search'
 
 let search = (query, options={}) => {
 
-  console.log("search")
-
   return $.getJSON({
     url: API_BASE,
     data: {
@@ -24,26 +22,22 @@ let search = (query, options={}) => {
       format: 'json'
     }
   }).then((data) => {
-    console.log("Done!")
     return data.results
   })
 }
 
 let AppResult = (props) => {
-  console.log("App Result")
   return (
     <div className={styles.result}>
       <img src={props.artworkUrl100} />
-      <p className={styles.result__title}>{props.trackName}</p>
-      <p className={styles.result__artist}>{props.formattedPrice}</p>
+      <p className={styles.result__name}>{props.trackName}</p>
+      <p className={styles.result__price}>{props.formattedPrice}</p>
     </div>
   )
 }
 
 class App extends React.Component {
   onSelect(result) {
-    console.log("Result")
-    console.log(result)
     this.props.onDone(new Types.Link({
       href: result.trackViewUrl
     }))
