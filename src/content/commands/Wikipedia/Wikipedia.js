@@ -13,8 +13,6 @@ const API_BASE = 'https://wikipedia.org/w/api.php'
 
 var items = []
 
-var resultCount = 0
-
 let search = (query, options={}) => {
 
   return $.ajax({
@@ -27,15 +25,11 @@ let search = (query, options={}) => {
       offset: options.offset
     }
   }).then((data) => {
-    console.log("Unconverted Data:")
-    console.log(data)
     for (var i = 0; i < data[1].length; i++) {
       var item = {id: i, title: data[1][i], excerpt: data[2][i], url: data[3][i]}
       items[i] = item
     }
 
-    console.log("Converted Items:")
-    console.log(items)
     return items
   })
 }
