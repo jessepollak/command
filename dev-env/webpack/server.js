@@ -5,7 +5,7 @@ var WebpackDevServer = require('webpack-dev-server')
 
 module.exports = function(webpackConfig) {
   var host = "0.0.0.0",
-      port = 3001;
+      port = process.env.PORT || 3001;
 
   var compiler = webpack(webpackConfig);
 
