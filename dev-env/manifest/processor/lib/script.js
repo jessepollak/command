@@ -5,6 +5,7 @@ import * as log from '../../log'
 import * as Remove from '../../../util/remove';
 
 const makeInjector = function(scriptName) {
+  const port = process.env.PORT || 3001
   return (
 `// Injector file for '${scriptName}'
 var context = this;
@@ -20,7 +21,7 @@ function reqListener () {
 
 var request = new XMLHttpRequest();
 request.onload = reqListener;
-request.open("get", "https://localhost:3001/${scriptName}", true);
+request.open("get", "https://localhost:${port}/${scriptName}", true);
 request.send();`
   )
 }

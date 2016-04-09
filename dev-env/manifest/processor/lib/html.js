@@ -32,7 +32,8 @@ export default function(htmlFilepath, buildPath) {
 
   const scriptFilepath = `${bareFilepath}.js`
 
-  const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join("https://localhost:3001", scriptFilepath) : `/${scriptFilepath}`
+  const port = process.env.PORT || 3001
+  const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join(`https://localhost:${port}`, scriptFilepath) : `/${scriptFilepath}`
   const webpackScript = `<script src="${webpackScriptUrl}" async defer></script>`;
 
   script(scriptFilepath, buildPath)

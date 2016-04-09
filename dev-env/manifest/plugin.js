@@ -16,8 +16,9 @@ export default class ManifestPlugin {
       // item
       let item
       if(this.isDevelopment) {
+        const port = process.env.PORT || 3001
         item = [
-          'webpack-dev-server/client?https://localhost:3001',
+          `webpack-dev-server/client?https://localhost:${port}`,
           'webpack/hot/only-dev-server',
           script
         ]

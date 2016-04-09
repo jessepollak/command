@@ -56,8 +56,9 @@ function configGenerator(Manifest) {
       }
 
       if(isDevelopment) {
+        var port = process.env.PORT || 3001
         output.chunkFilename = '[name]-[chunkhash].js'
-        output.publicPath = 'https://localhost:3001/'
+        output.publicPath = `https://localhost:${port}/`
       }
 
       return output
