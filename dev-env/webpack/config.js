@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import _ from 'lodash';
 import * as Remove from '../util/remove'
 import * as paths from '../paths'
+import * as config from '../config'
 import ManifestPlugin from '../manifest/plugin'
 
 // NOTE Style preprocessors
@@ -56,9 +57,8 @@ function configGenerator(Manifest) {
       }
 
       if(isDevelopment) {
-        var port = process.env.PORT || 3001
         output.chunkFilename = '[name]-[chunkhash].js'
-        output.publicPath = `https://localhost:${port}/`
+        output.publicPath = config.DEV_URL + '/'
       }
 
       return output

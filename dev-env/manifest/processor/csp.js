@@ -1,4 +1,5 @@
 import * as log from '../log'
+import * as config from '../../config'
 
 //////////
 // CSP. Fix Content security policy to allow eval webpack scripts in development mode
@@ -18,8 +19,7 @@ export default function(manifest) {
     }
 
     // TODO add host into some config
-    const port = process.env.PORT || 3001
-    const scriptSrc = `script-src 'self' 'unsafe-eval' https://localhost:${port}`
+    const scriptSrc = `script-src 'self' 'unsafe-eval' ${config.DEV_URL}`
 
     if(~csp.indexOf('script-src')) {
       csp = csp.replace('script-src', scriptSrc)

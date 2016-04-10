@@ -2,15 +2,15 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server')
+var config = require('../config')
 
 module.exports = function(webpackConfig) {
-  var host = "0.0.0.0",
-      port = process.env.PORT || 3001;
+  var host = "0.0.0.0"
 
   var compiler = webpack(webpackConfig);
 
   var webpackDevServerOptions = {
-    contentBase: `https://localhost:${port}`,
+    contentBase: config.DEV_URL,
     publicPath: webpackConfig.output.publicPath,
     https: true,
     // lazy: true,
@@ -36,11 +36,11 @@ module.exports = function(webpackConfig) {
   new WebpackDevServer(
     compiler,
     webpackDevServerOptions
-  ).listen(port, host, function (err, result) {
+  ).listen(config.PORT, host, function (err, result) {
     if (err) {
       console.log(err)
     } else {
-      console.log('Listening at https://' + host + ':' + port);
+      console.log('Listening at https://' + host + ':' + config.PORT);
     }
   })
 }

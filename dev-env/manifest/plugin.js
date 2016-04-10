@@ -1,6 +1,7 @@
 import SingleEntryPlugin from "webpack/lib/SingleEntryPlugin"
 import MultiEntryPlugin from "webpack/lib/MultiEntryPlugin"
 import * as Remove from '../util/remove'
+import * as config from '../config'
 
 export default class ManifestPlugin {
   constructor(Manifest) {
@@ -16,9 +17,8 @@ export default class ManifestPlugin {
       // item
       let item
       if(this.isDevelopment) {
-        const port = process.env.PORT || 3001
         item = [
-          `webpack-dev-server/client?https://localhost:${port}`,
+          `webpack-dev-server/client?${config.DEV_URL}`,
           'webpack/hot/only-dev-server',
           script
         ]

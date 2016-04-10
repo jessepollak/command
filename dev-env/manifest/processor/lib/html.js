@@ -1,9 +1,10 @@
 import path from 'path'
 import fs from 'fs-extra'
 
+import * as config from '../../../config'
 import * as log from '../../log'
 import script from './script'
-import * as Remove from '../../../util/remove';
+import * as Remove from '../../../util/remove'
 
 const makeLayout = function({script, body}) {
   return (
@@ -32,8 +33,7 @@ export default function(htmlFilepath, buildPath) {
 
   const scriptFilepath = `${bareFilepath}.js`
 
-  const port = process.env.PORT || 3001
-  const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join(`https://localhost:${port}`, scriptFilepath) : `/${scriptFilepath}`
+  const webpackScriptUrl = process.env.NODE_ENV == "development" ? path.join(config.DEV_URL, scriptFilepath) : `/${scriptFilepath}`
   const webpackScript = `<script src="${webpackScriptUrl}" async defer></script>`;
 
   script(scriptFilepath, buildPath)

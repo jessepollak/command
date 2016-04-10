@@ -1,11 +1,11 @@
 import fs from 'fs-extra'
 import path from 'path'
 
+import * as config from '../../../config'
 import * as log from '../../log'
-import * as Remove from '../../../util/remove';
+import * as Remove from '../../../util/remove'
 
 const makeInjector = function(scriptName) {
-  const port = process.env.PORT || 3001
   return (
 `// Injector file for '${scriptName}'
 var context = this;
@@ -21,7 +21,7 @@ function reqListener () {
 
 var request = new XMLHttpRequest();
 request.onload = reqListener;
-request.open("get", "https://localhost:${port}/${scriptName}", true);
+request.open("get", "${config.DEV_URL}/${scriptName}", true);
 request.send();`
   )
 }
