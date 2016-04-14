@@ -18,6 +18,8 @@ Add the development build of the extension to your browser.
 3. Click on *Load unpacked extension*
 4. Add `command/build`
 
+Now, navigate to any page and open up your JS console. If there is an SSL error, right click the `localhost` link with the SSL error, open in a new tab, then confirm that you'd like to proceed. This happens because we used a self-signed SSL certificate to serve assets in development
+
 ## Creating a command
 
 Creating a new `command` is easy. It requires creating a new command in the `commands` folder. To demonstrate how this works, let's implement a simple command that opens a new tab to `google.com`.
