@@ -71,14 +71,14 @@ class Container extends React.Component {
 
     return (
       <Draggable>
-      <div className={styles.wrapper} style={style} >
-        <Close onClick={this.unmount}/>
-        <div className={classes}>
-          { this.props.children }
-          <Icon />
-          <Version />
+        <div className={styles.wrapper} style={style} >
+          <Close onClick={this.unmount}/>
+          <div className={classes}>
+            { this.props.children }
+            <Icon />
+            <Version />
+          </div>
         </div>
-      </div>
       </Draggable>
     )
   }
