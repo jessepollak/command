@@ -1181,7 +1181,7 @@ $.fn.atwho["default"] = {
   hideWithoutSuffix: false,
   startWithSpace: true,
   highlightFirst: true,
-  limit: 5,
+  limit: 6,
   maxLen: 20,
   minLen: 0,
   displayTimeout: 300,

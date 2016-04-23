@@ -232,7 +232,7 @@ export class Widget extends React.Component {
   }
 
   search(query) {
-    if (query == "") {
+    if (this.props.validate(query)) {
       return this.setState({
         query: query,
         IS_LOADING: false,
@@ -250,8 +250,12 @@ export class Widget extends React.Component {
   }
 
   render() {
-    let classes = classnames(styles.widget, this.props.className, {
-      [styles.isExpanded]: this.state.query != "" || this.props.isExpanded,
+    var widgetClass=styles.widget
+    if(!this.props.isResultList) {
+      widgetClass=styles.widgetWithoutList
+    }
+    let classes = classnames(widgetClass, this.props.className, {
+      [styles.isExpanded]: !this.props.validate(this.state.query) || this.props.isExpanded,
       [styles.hasResults]: this.state.results.length > 0,
       [styles.hasColumns]: this.props.columns
     })
@@ -290,7 +294,9 @@ export class Widget extends React.Component {
 }
 Widget.defaultProps = {
   placeholder: "Search...",
-  columns: 4
+  columns: 4,
+  isResultList: true,
+  validate: (data) => {return data==""}
 }
 Widget.propTypes = {
   results: React.PropTypes.array,
@@ -301,9 +307,11 @@ Widget.propTypes = {
   placeholder: React.PropTypes.string,
   onSearch: React.PropTypes.func.isRequired,
   onSelect: React.PropTypes.func.isRequired,
+  validate: React.PropTypes.func.isRequired,
   onEsc: React.PropTypes.func.isRequired,
   ResultClass: React.PropTypes.oneOfType([
     React.PropTypes.func.isRequired,
     React.PropTypes.element.isRequired,
-  ])
+  ]),
+  isResultList: React.PropTypes.bool
 }
