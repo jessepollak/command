@@ -34,7 +34,7 @@ export default class Manifest {
   prepareBuildDir() {
     // Prepare clear build
     fs.removeSync(this.buildPath)
-    fs.mkdirSync(this.buildPath)
+    fs.mkdirsSync(this.buildPath)
   }
 
   writeManifest() {
