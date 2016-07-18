@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classnames from 'classnames'
 import NativeListener from 'react-native-listener'
+import Draggable from 'react-draggable'
 
 import * as Extension from 'content/lib/extension'
 import styles from './Container.scss'
@@ -69,14 +70,16 @@ class Container extends React.Component {
     let classes = classnames(styles.container, this.props.className)
 
     return (
-      <div className={styles.wrapper} style={style} >
-        <Close onClick={this.unmount}/>
-        <div className={classes}>
-          { this.props.children }
-          <Icon />
-          <Version />
+      <Draggable>
+        <div className={styles.wrapper} style={style} >
+          <Close onClick={this.unmount}/>
+          <div className={classes}>
+            { this.props.children }
+            <Icon />
+            <Version />
+          </div>
         </div>
-      </div>
+      </Draggable>
     )
   }
 }
