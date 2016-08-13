@@ -27,5 +27,6 @@
   "web_accessible_resources": [
     "icons/*"
   ],
+  "options_page": "options/page.html",
   "content_security_policy": "script-src 'self'; media-src 'self';"
 }

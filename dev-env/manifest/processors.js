@@ -3,6 +3,7 @@ import PackageJson from './processor/package_json'
 import Assets      from './processor/assets'
 import Action      from './processor/action'
 import Background  from './processor/background'
+import OptionsPage from './processor/options_page'
 import Content     from './processor/content'
 import Overrides   from './processor/overrides'
 
@@ -18,6 +19,8 @@ const processors = [
   Action,
   // Process background script
   Background,
+  // Process options page
+  OptionsPage,
   // Process content script
   Content,
   // Process overrides
