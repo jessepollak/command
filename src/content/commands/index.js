@@ -1,4 +1,4 @@
-import indexBy from 'lodash.indexBy'
+import indexBy from 'lodash.indexby'
 import pluck from 'lodash.pluck'
 
 // need this import for global spinners to work
