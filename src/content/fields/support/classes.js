@@ -1,7 +1,9 @@
 import TextareaUnformatted from 'content/fields/TextareaUnformatted'
+import TextareaMarkdown from 'content/fields/TextareaMarkdown'
 
 const MAPPING = {
-  'uiTextareaNoResize': TextareaUnformatted
+  'uiTextareaNoResize': TextareaUnformatted,
+  'markdown-area': TextareaMarkdown
 }
 
 export default function getClassOverriddenField($element) {
