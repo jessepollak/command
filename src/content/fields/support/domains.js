@@ -6,8 +6,14 @@ import Unsupported from 'content/fields/Unsupported'
 const MAPPING = {
   'www.messenger.com': Unsupported,
   'www.facebook.com': Unsupported,
-  'github.com': TextareaMarkdown,
   'twitter.com': Unsupported
+}
+
+// Consider any page with github in the hostname to be a github page.
+// Adds support for GHE
+const hostname = window.location.hostname
+if (hostname.includes('github')) {
+  MAPPING[hostname] = TextareaMarkdown
 }
 
 export default function getDomainOverriddenField($element) {
