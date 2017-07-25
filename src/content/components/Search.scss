@@ -11,6 +11,17 @@
   }
 }
 
+.widgetWithoutList {
+  height: 70px;
+  transition: height 300ms;
+  &.isExpanded {
+    height: 100px;
+  }
+  &.hasResults .results {
+    opacity: 1;
+  }
+}
+
 input[type="search"].input {
   width: 100%;
   padding: 8px;

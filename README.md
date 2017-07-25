@@ -20,6 +20,7 @@ Now, would you like to give it a try?
 
 ## Current commands
 
+* */bitly* - add shorten link 
 * */emoji* - add emoji
 * */giphy* - search and add a GIF
 * */help* - learn how to use Command
